@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="58" height="58" viewBox="0 0 58 58">
+  <defs>
+    <clipPath id="clip-ic_email">
+      <rect width="58" height="58"/>
+    </clipPath>
+  </defs>
+  <g id="ic_email" clip-path="url(#clip-ic_email)">
+    <path id="email_2_" data-name="email(2)" d="M51.971,59.882H5.376A5.382,5.382,0,0,0,0,65.258V97.516a5.382,5.382,0,0,0,5.376,5.376H51.971a5.382,5.382,0,0,0,5.376-5.376V65.258A5.382,5.382,0,0,0,51.971,59.882Zm0,3.584a1.782,1.782,0,0,1,.687.139L28.674,84.392,4.689,63.6a1.784,1.784,0,0,1,.687-.139Zm0,35.842H5.376a1.793,1.793,0,0,1-1.792-1.792V67.392L27.5,88.118a1.795,1.795,0,0,0,2.349,0L53.763,67.392V97.516A1.793,1.793,0,0,1,51.971,99.308Z" transform="translate(0 -52.882)" fill="#727c8e" opacity="0.5"/>
+  </g>
+</svg>

@@ -1,12 +1,21 @@
 import { useMemo } from "react";
 import { Link } from "react-router-dom";
+import AppLogo from "../../src/assets/appIcon.png";
 
 const NavDrawerComponent = () => {
   const LinkArray: Array<{ name: string; link: string }> = useMemo(() => {
     return [
       {
+        name: "Home",
+        link: "/",
+      },
+      {
         name: "Recipes",
         link: "/recipes",
+      },
+      {
+        name: "Blogs",
+        link: "/blogs",
       },
       {
         name: "Videos",
@@ -39,8 +48,9 @@ const NavDrawerComponent = () => {
     <>
       {LinkArray.map((it) => {
         return (
-          <li key={it.link}>
-            <Link className="text-lg" to={it.link}>
+          <li key={it.link} className="flex-row">
+            <img className="sm:ml-10 " src={AppLogo} height={50} width={50} />
+            <Link className="text-md text-primary" to={it.link}>
               {it.name}
             </Link>
           </li>

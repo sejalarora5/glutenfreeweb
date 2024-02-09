@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="53" height="53" viewBox="0 0 53 53">
+  <defs>
+    <clipPath id="clip-ic_home_unselected">
+      <rect width="53" height="53"/>
+    </clipPath>
+  </defs>
+  <g id="ic_home_unselected" clip-path="url(#clip-ic_home_unselected)">
+    <g id="home" transform="translate(0 -11.676)">
+      <g id="Group_9361" data-name="Group 9361" transform="translate(0 12.675)">
+        <g id="Group_9360" data-name="Group 9360" transform="translate(0)">
+          <path id="Path_2854" data-name="Path 2854" d="M52.11,35.057,28.33,13.389a2.705,2.705,0,0,0-3.661,0L.89,35.057a2.718,2.718,0,0,0,1.831,4.727h3.8V61.493a1.559,1.559,0,0,0,1.559,1.559H21.111a1.559,1.559,0,0,0,1.559-1.559V48.311h7.66V61.493a1.559,1.559,0,0,0,1.559,1.559H44.922a1.559,1.559,0,0,0,1.559-1.559V39.783h3.8a2.718,2.718,0,0,0,1.83-4.727Z" transform="translate(0 -12.675)" fill="#bcbcbc"/>
+        </g>
+      </g>
+      <g id="Group_9363" data-name="Group 9363" transform="translate(35.606 15.787)">
+        <g id="Group_9362" data-name="Group 9362" transform="translate(0 0)">
+          <path id="Path_2855" data-name="Path 2855" d="M354.44,42.73H343.973L356,53.665V44.289A1.559,1.559,0,0,0,354.44,42.73Z" transform="translate(-343.973 -42.73)" fill="#bcbcbc"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

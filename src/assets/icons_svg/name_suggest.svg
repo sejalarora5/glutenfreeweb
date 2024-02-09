@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60px" height="60px" viewBox="0 0 60 60" version="1.1">
+<defs>
+<filter id="alpha" filterUnits="objectBoundingBox" x="0%" y="0%" width="100%" height="100%">
+  <feColorMatrix type="matrix" in="SourceGraphic" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/>
+</filter>
+<image id="image9" width="60" height="60" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAABmJLR0QA/wD/AP+gvaeTAAAAhUlEQVRoge3RMQ4BURSG0XtFRU8UswH7sBhbUVrBlHYiCoVVjAVIJIRREZVuvOTlnOqW/5cbAQAAAFCbfB/9ZTGPbEYlxwxmejxnPPqI7+D76RDZzsqtGlDXLbPZXSMi6vzoD4JrJ7h2gms3/ly52sRzPSm4ZTj77a30BAAAAAAAAAD+6wUJ2xKpr+e1kgAAAABJRU5ErkJggg=="/>
+<mask id="mask0">
+  <g filter="url(#alpha)">
+<use xlink:href="#image9"/>
+  </g>
+</mask>
+<clipPath id="clip1">
+  <rect x="0" y="0" width="60" height="60"/>
+</clipPath>
+<g id="surface8" clip-path="url(#clip1)">
+<path style=" stroke:none;fill-rule:evenodd;fill:rgb(69.803922%,72.156863%,76.078431%);fill-opacity:1;" d="M 5.554688 18.886719 C 21.609375 18.769531 37.65625 18.886719 53.703125 19.257812 C 56.835938 20.214844 57.949219 22.3125 57.039062 25.554688 C 56.367188 26.445312 55.507812 27.0625 54.445312 27.414062 C 37.898438 27.898438 21.359375 27.898438 4.8125 27.414062 C 2.0625 26.152344 1.203125 24.054688 2.226562 21.113281 C 3.261719 20.164062 4.375 19.421875 5.554688 18.886719 Z M 5.554688 18.886719 "/>
+</g>
+<image id="image17" width="60" height="60" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAABmJLR0QA/wD/AP+gvaeTAAAAg0lEQVRoge3PsQ0BcQDF4fdHRC/RXWkQQ1jAQhJT2EMrKr3CBBpyBWeGS5wT9339S34vAQAAAAAAAGAISpI0GZdc17O+Y9oq1f7RepMkzf1UZbo5fz6pY5fVoiy3dZvJqKuWX+Xwv3P43w3u8CRJ8jzWaeaHnlvau+1efScAAAAA8HVvEz8SK/zSA3YAAAAASUVORK5CYII="/>
+<mask id="mask1">
+  <g filter="url(#alpha)">
+<use xlink:href="#image17"/>
+  </g>
+</mask>
+<clipPath id="clip2">
+  <rect x="0" y="0" width="60" height="60"/>
+</clipPath>
+<g id="surface16" clip-path="url(#clip2)">
+<path style=" stroke:none;fill-rule:evenodd;fill:rgb(69.803922%,72.156863%,76.078431%);fill-opacity:1;" d="M 4.070312 32.960938 C 17.65625 32.84375 31.242188 32.960938 44.8125 33.328125 C 47.765625 35.839844 47.765625 38.3125 44.8125 40.742188 C 31.230469 41.230469 17.65625 41.230469 4.070312 40.742188 C 1.152344 38.183594 1.152344 35.59375 4.070312 32.960938 Z M 4.070312 32.960938 "/>
+</g>
+</defs>
+<g id="surface1">
+<use xlink:href="#surface8" mask="url(#mask0)"/>
+<use xlink:href="#surface16" mask="url(#mask1)"/>
+</g>
+</svg>

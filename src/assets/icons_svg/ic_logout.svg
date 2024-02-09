@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="66" height="66" viewBox="0 0 66 66">
+  <defs>
+    <clipPath id="clip-ic_logout">
+      <rect width="66" height="66"/>
+    </clipPath>
+  </defs>
+  <g id="ic_logout" clip-path="url(#clip-ic_logout)">
+    <g id="Group_9505" data-name="Group 9505" transform="translate(-35 -2316)">
+      <g id="Component_8_3" data-name="Component 8 – 3" transform="translate(35 2316)">
+        <rect id="Rectangle_3458" data-name="Rectangle 3458" width="66" height="66" fill="rgba(255,255,255,0)" opacity="0"/>
+        <g id="Group_9503" data-name="Group 9503" transform="translate(11.934 5.223)">
+          <g id="Group_2246" data-name="Group 2246" transform="translate(0 0)">
+            <g id="Group_2245" data-name="Group 2245">
+              <path id="Path_1776" data-name="Path 1776" d="M21.428,45.035H5.357a1.908,1.908,0,0,1-1.786-2.008V6.875A1.908,1.908,0,0,1,5.357,4.867H21.428a1.905,1.905,0,0,0,1.786-2.008A1.905,1.905,0,0,0,21.428.85H5.357C2.4.85,0,3.553,0,6.875V43.026c0,3.322,2.4,6.025,5.357,6.025H21.428a2.022,2.022,0,0,0,0-4.017Z" transform="translate(0 2.477)" fill="#3f4953"/>
+            </g>
+          </g>
+          <g id="Group_2248" data-name="Group 2248" transform="translate(13.42 14.929)">
+            <g id="Group_2247" data-name="Group 2247">
+              <path id="Path_1777" data-name="Path 1777" d="M198.281,118.393l-10.857-10.714a1.785,1.785,0,0,0-2.507,2.543l7.759,7.657h-20.79a1.786,1.786,0,0,0,0,3.571h20.79l-7.759,7.657a1.785,1.785,0,1,0,2.507,2.543l10.857-10.714a1.785,1.785,0,0,0,0-2.543Z" transform="translate(-170.1 -107.165)" fill="#3f4953"/>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
