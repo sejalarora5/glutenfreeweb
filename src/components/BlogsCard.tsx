@@ -11,7 +11,7 @@ const BlogsCard: FC<props> = ({ image, title, body, url }) => {
   return (
     <div className="card card-compact w-96 bg-base-100 shadow-xl">
       <figure>
-        <img src={image} alt="Shoes" />
+        <img className="h-60 w-96 object-cover" src={image} alt="Shoes" />
       </figure>
       <div className="card-body">
         <h2 className="card-title line-clamp-1">{title}</h2>
