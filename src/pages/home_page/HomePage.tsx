@@ -1,7 +1,7 @@
 import AppLogo from "../../assets/appIcon.png";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../redux/store";
-import { UserStateType } from "../../redux/userSlice/userSlice";
+import { UserStateType, logOutUser } from "../../redux/userSlice/userSlice";
 import { Link } from "react-router-dom";
 import NavDrawerComponent from "../../components/NavDrawerComponent";
 import HomeBanner from "../../assets/banner.jpg";
@@ -79,13 +79,30 @@ const HomePage = () => {
 
         <div className="flex-none">
           {userSelector.token !== "" ? (
-            <div className="avatar placeholder mx-5">
-              <div className="bg-neutral text-neutral-content rounded-full w-8">
-                <span className="text-xs">
-                  {userSelector.userData.name.charAt(0).toUpperCase()}
-                </span>
-              </div>
-            </div>
+            <details className="dropdown">
+              <summary className="avatar placeholder mx-5">
+                <div className="bg-neutral text-neutral-content rounded-full w-8">
+                  <span className="text-xs">
+                    {userSelector.userData.name.charAt(0).toUpperCase()}
+                  </span>
+                </div>
+              </summary>
+              <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+                <li>
+                  <a>Edit Profile</a>
+                </li>
+                <li>
+                  <a
+                    onClick={() => {
+                      console.log("loggin out user");
+                      //TODO LOGOUT USER
+                    }}
+                  >
+                    Logout
+                  </a>
+                </li>
+              </ul>
+            </details>
           ) : (
             <Link className="btn btn-secondary w-24 m-5" to={"/login"}>
               Login
