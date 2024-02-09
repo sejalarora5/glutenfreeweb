@@ -1,25 +1,31 @@
 import { Rating } from "@smastrom/react-rating";
 import { FC } from "react";
+import LocationSvg from "../assets/location.svg";
 
 type props = {
   image: string;
   title: string;
   rating: number;
+  location: string;
   onClick: () => void;
 };
 
-const Card: FC<props> = ({ image, title, rating, onClick }) => {
+const Card: FC<props> = ({ image, title, rating, location, onClick }) => {
   return (
     <div
-      className="card card-compact w-96 bg-base-100 shadow-xl"
+      className="card card-compact w-90 bg-base-100 shadow-xl"
       onClick={onClick}
     >
       <figure>
         <img src={image} alt="Shoes" />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">{title}</h2>
-        <Rating value={rating} style={{ maxWidth: 150 }} readOnly />
+        <h2 className="card-title text-lg">{title}</h2>
+        <Rating className="-mt-2" value={rating} style={{ maxWidth: 80 }} readOnly />
+        <div className="flex flex-row">
+          <img className="w-4 h-4 mr-1 justify-center" src={LocationSvg} />
+          {location}
+          </div>
       </div>
     </div>
   );

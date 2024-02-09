@@ -249,6 +249,7 @@ const RestaurantsPage = () => {
                         image={it.banner}
                         title={it.name}
                         rating={it.rating}
+                        location={it.location}
                         onClick={() => {
                           navigate("/restaurantsDetails/" + it.id.toString());
                           console.log("card clicked with name " + it.name);
