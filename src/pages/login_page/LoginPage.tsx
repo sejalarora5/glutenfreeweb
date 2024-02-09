@@ -6,7 +6,6 @@ import appIcon from "../../assets/appIcon.png";
 import "react-toastify/dist/ReactToastify.min.css";
 import axios from "axios";
 import { toast } from "react-toastify";
-import backgroundImage from "../../assets/splash.png";
 import { saveUser } from "../../redux/userSlice/userSlice";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../redux/store";

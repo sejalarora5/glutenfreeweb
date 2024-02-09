@@ -5,7 +5,7 @@ import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
 import AutoComplete from "react-google-autocomplete";
 import FilterSvg from "../../assets/filter-6535.svg";
 import { RestaurantFilterData } from "./types";
-import { useNavigate, useNavigation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export interface Restaurant {
   id: number;
@@ -68,7 +68,7 @@ const RestaurantsPage = () => {
   const [restaurantFilterData, setRestaurantFilterData] =
     useState<RestaurantFilterData>();
   const [showModal, setShowModal] = useState(false);
-  const [showRestaurantDetail, setShowRestaurantDetail] = useState(false);
+  // const [showRestaurantDetail, setShowRestaurantDetail] = useState(false);
   const [restaurantFilterCheckedState, setRestauarantFilterCheckedState] =
     useState<Array<boolean>>([]);
 

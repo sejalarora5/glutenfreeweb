@@ -1,4 +1,4 @@
-import { PayloadAction, configureStore, createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { UserData } from "../../pages/login_page/LoginPage";
 
 export type UserStateType = {
