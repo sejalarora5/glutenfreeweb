@@ -111,8 +111,10 @@ const CardsPage = () => {
   return (
     <div>
       <div className="flex flex-row justify-between mx-10 my-5">
-        <h1 className="text-3xl font-bold text-pink-400">Gluten-Free Cards</h1>
-        <details className="dropdown">
+        <h1 className="text-4xl font-semibold text-pink-400">
+          Gluten-Free Cards
+        </h1>
+        <details className="dropdown dropdown-bottom dropdown-end">
           <summary className="m-1 btn text-pink-400">{currentLang}</summary>
           <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
             {langSelector.data.data.map((it) => (
@@ -137,7 +139,7 @@ const CardsPage = () => {
         >
           {Array.from(new Array(numPages), (el, index) => (
             <Page
-              scale={2}
+              scale={1.4}
               className="text-sm"
               key={`page_${index + 1}`}
               pageNumber={index + 1}
