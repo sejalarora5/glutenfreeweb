@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="66" height="66" viewBox="0 0 66 66">
+  <defs>
+    <clipPath id="clip-menu_grocery_shops_selector">
+      <rect width="66" height="66"/>
+    </clipPath>
+  </defs>
+  <g id="menu_grocery_shops_selector" clip-path="url(#clip-menu_grocery_shops_selector)">
+    <g id="grocery_shops" transform="translate(-38.04 -504.04)">
+      <rect id="Rectangle_3451" data-name="Rectangle 3451" width="66" height="66" transform="translate(38.04 504.04)" fill="#c52c7f" opacity="0"/>
+      <path id="basket" d="M56.461,45.373H50.417L42,28.875a1.725,1.725,0,0,0-2.375-.758,1.859,1.859,0,0,0-.731,2.465l7.543,14.791H13.365l7.543-14.791a1.859,1.859,0,0,0-.731-2.465,1.725,1.725,0,0,0-2.375.758L9.39,45.373H3.356A3.426,3.426,0,0,0,0,48.857v4.052a3.436,3.436,0,0,0,3.124,3.475l5.894,25.44a1.771,1.771,0,0,0,1.708,1.4H49.079a1.771,1.771,0,0,0,1.708-1.4l5.907-25.441a3.436,3.436,0,0,0,3.122-3.475V48.857A3.426,3.426,0,0,0,56.461,45.373ZM3.514,49.021H56.3v3.724H3.514Zm47.3,17.132H43.12l1.174-9.76h8.784ZM31.668,79.573V69.8H39.14l-1.175,9.772Zm-9.812,0L20.68,69.8h7.474v9.772ZM6.74,56.393h8.785l1.175,9.76H9Zm12.326,0h9.088v9.76H20.241Zm12.6,9.76v-9.76h9.085l-1.174,9.76ZM9.847,69.8h7.292l1.176,9.772h-6.2ZM47.7,79.573H41.506L42.681,69.8h7.283Z" transform="translate(41.415 481.541)" fill="#c52c7f"/>
+    </g>
+  </g>
+</svg>

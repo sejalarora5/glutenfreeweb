@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="38" height="38" viewBox="0 0 38 38">
+  <defs>
+    <clipPath id="clip-ic_menu">
+      <rect width="38" height="38"/>
+    </clipPath>
+  </defs>
+  <g id="ic_menu" clip-path="url(#clip-ic_menu)">
+    <g id="list_view_white" transform="translate(0 4)">
+      <path id="Path_2907" data-name="Path 2907" d="M37.812,12.25H2.187C1.532,12.25,1,13.018,1,13.965s.532,1.715,1.187,1.715H37.812c.656,0,1.187-.768,1.187-1.715S38.468,12.25,37.812,12.25Z" transform="translate(-1 1.467)" fill="#fff"/>
+      <path id="Path_2908" data-name="Path 2908" d="M2.187,9.679H37.812c.656,0,1.187-.768,1.187-1.715S38.468,6.25,37.812,6.25H2.187C1.532,6.25,1,7.018,1,7.965S1.532,9.679,2.187,9.679Z" transform="translate(-1 -6.25)" fill="#fff"/>
+      <path id="Path_2909" data-name="Path 2909" d="M37.812,18.25H2.187C1.532,18.25,1,19.018,1,19.965s.532,1.715,1.187,1.715H37.812c.656,0,1.187-.768,1.187-1.715S38.468,18.25,37.812,18.25Z" transform="translate(-1 9.184)" fill="#fff"/>
+    </g>
+  </g>
+</svg>
