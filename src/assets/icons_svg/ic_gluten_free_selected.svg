@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="53" height="53" viewBox="0 0 53 53">
+  <defs>
+    <clipPath id="clip-ic_gluten_free_selected">
+      <rect width="53" height="53"/>
+    </clipPath>
+  </defs>
+  <g id="ic_gluten_free_selected" clip-path="url(#clip-ic_gluten_free_selected)">
+    <g id="gluten-free_2_" data-name="gluten-free(2)" transform="translate(0 0)">
+      <path id="Path_2862" data-name="Path 2862" d="M256.6,17.131v6.445a22.372,22.372,0,0,0-2.76.734l8.978,8.978a16.423,16.423,0,0,0,.407-3.475V6.625a3.312,3.312,0,1,0-6.625,0v3.692a22.362,22.362,0,0,0-6.625,2.4v-9.4a3.313,3.313,0,1,0-6.625,0V13.819l6.983,6.983A13.892,13.892,0,0,1,256.6,17.131Z" transform="translate(-220.164 0)" fill="#c52c7f"/>
+      <path id="Path_2863" data-name="Path 2863" d="M53,48.316,4.684,0,0,4.684l9.937,9.937V29.812A16.59,16.59,0,0,0,23.187,46.04V53h6.625V46.04a16.378,16.378,0,0,0,7.644-3.9L48.316,53,53,48.316ZM16.562,21.246l3.212,3.212a22.212,22.212,0,0,0-3.212-.883Zm6.625,17.893A9.9,9.9,0,0,1,16.621,30.4a13.7,13.7,0,0,1,6.566,3.991Zm6.625,0V34.5l2.913,2.913A9.742,9.742,0,0,1,29.812,39.139Z" transform="translate(0 0)" fill="#c52c7f"/>
+    </g>
+  </g>
+</svg>

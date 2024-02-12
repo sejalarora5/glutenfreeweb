@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="66" height="66" viewBox="0 0 66 66">
+  <defs>
+    <clipPath id="clip-ic_e_book">
+      <rect width="66" height="66"/>
+    </clipPath>
+  </defs>
+  <g id="ic_e_book" clip-path="url(#clip-ic_e_book)">
+    <g id="e_book" transform="translate(-34.517 -1106.517)">
+      <rect id="Rectangle_3455" data-name="Rectangle 3455" width="66" height="66" transform="translate(34.517 1106.517)" fill="rgba(255,255,255,0)" opacity="0"/>
+      <g id="Page-1" transform="translate(40.719 1108.77)">
+        <g id="icon-30-book" transform="translate(6 4)">
+          <path id="book" d="M29.423,14.647H46.458V55.1H16.647V14.647ZM48.587,57.234H12.376A6.385,6.385,0,0,1,6,50.847V9.323A5.3,5.3,0,0,1,11.308,4h37.28V6.129H47.513a3.194,3.194,0,0,0,0,6.388h1.075V57.234ZM14.517,55.1h-2.14a4.243,4.243,0,0,1-4.248-4.24V13.586a5.273,5.273,0,0,0,3.178,1.061h3.21V55.1ZM11.309,6.129a3.194,3.194,0,0,0,0,6.388H43.264A7.243,7.243,0,0,1,42.2,9.267a6.555,6.555,0,0,1,1.065-3.138Z" transform="translate(-6 -4)" fill="#3f4953" stroke="#3f4953" stroke-width="1" fill-rule="evenodd"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

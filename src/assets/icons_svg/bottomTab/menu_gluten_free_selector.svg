@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="66" height="66" viewBox="0 0 66 66">
+  <defs>
+    <clipPath id="clip-menu_gluten_free_selector">
+      <rect width="66" height="66"/>
+    </clipPath>
+  </defs>
+  <g id="menu_gluten_free_selector" clip-path="url(#clip-menu_gluten_free_selector)">
+    <g id="gluten_free" transform="translate(-37.681 -503.681)">
+      <rect id="Rectangle_3451" data-name="Rectangle 3451" width="66" height="66" transform="translate(37.681 503.681)" fill="#c52c7f" opacity="0"/>
+      <g id="dish" transform="translate(44.192 510.362)">
+        <g id="gluten-free_1_" data-name="gluten-free(1)" transform="translate(0 0)">
+          <path id="Path_2851" data-name="Path 2851" d="M195.565,20.637c4.833-5.962,12.587-6.13,12.693-6.13V29.014a22.039,22.039,0,0,0-5.777,1.037l2.963,2.963a16.385,16.385,0,0,1,2.813-.374,14.355,14.355,0,0,1-.306,2.881l2.9,2.9a17.9,17.9,0,0,0,1.032-5.782V5.44a1.813,1.813,0,0,0-3.627,0v5.44a22.26,22.26,0,0,0-12.693,4.658V1.813a1.813,1.813,0,1,0-3.627,0V15.538a21.209,21.209,0,0,0-7.867-3.9l11.494,11.493Z" transform="translate(-167.634 0)" fill="#c52c7f"/>
+          <path id="Path_2852" data-name="Path 2852" d="M113.974,36.343a1.812,1.812,0,0,0-1.813-1.813,1.767,1.767,0,0,0-1.02.354l2.834,2.834S113.974,36.343,113.974,36.343Z" transform="translate(-100.424 -30.903)" fill="#c52c7f"/>
+          <path id="Path_2853" data-name="Path 2853" d="M53.5,51.137,2.364,0,0,2.365,10.031,12.4v17.7a16.684,16.684,0,0,0,15.047,16.55V53.5h3.344V46.712A16.605,16.605,0,0,0,39,41.363L51.136,53.5,53.5,51.137ZM25.078,27.444v3.6a20.524,20.524,0,0,0-11.7-4.295V15.74ZM13.375,30.1c.1,0,7.247.155,11.7,5.652V43.3A13.349,13.349,0,0,1,13.375,30.1ZM28.422,43.3V35.747A13.393,13.393,0,0,1,31,33.365l5.583,5.583A13.26,13.26,0,0,1,28.422,43.3Z" transform="translate(0 -0.001)" fill="#c52c7f"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

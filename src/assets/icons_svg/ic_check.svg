@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 40 40">
+  <defs>
+    <clipPath id="clip-ic_check">
+      <rect width="40" height="40"/>
+    </clipPath>
+  </defs>
+  <g id="ic_check" clip-path="url(#clip-ic_check)">
+    <path id="tick" d="M6645.434,674.39l9.646,9.318,24.905-22.058" transform="translate(-6642.934 -653.15)" fill="none" stroke="#357a45" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+  </g>
+</svg>

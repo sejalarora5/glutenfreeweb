@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="53" height="53" viewBox="0 0 53 53">
+  <defs>
+    <filter id="Ellipse_1227" x="-3" y="-6" width="59" height="59" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-ic_unchecked">
+      <rect width="53" height="53"/>
+    </clipPath>
+  </defs>
+  <g id="ic_unchecked" clip-path="url(#clip-ic_unchecked)">
+    <g id="radio_btn" transform="translate(-171 -1712)">
+      <g transform="matrix(1, 0, 0, 1, 171, 1712)" filter="url(#Ellipse_1227)">
+        <circle id="Ellipse_1227-2" data-name="Ellipse 1227" cx="20.5" cy="20.5" r="20.5" transform="translate(6)" fill="#d8d8d8"/>
+      </g>
+      <circle id="Ellipse_1226" data-name="Ellipse 1226" cx="12.5" cy="12.5" r="12.5" transform="translate(185 1720)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

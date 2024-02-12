@@ -13,17 +13,19 @@ import userSlice from "./userSlice/userSlice";
 import storage from "redux-persist/lib/storage";
 import themeSlice from "./themeSlice/themeSlice";
 import blogsSlice from "./blogsSlice/blogsSlice";
+import languageSlice from "./languageSlice/languageSlice";
 
 const persistConfig = {
   key: "root",
   storage,
-  blacklist: ["blogs"],
+  blacklist: ["blogs", "language"],
 };
 
 const rootReducers = combineReducers({
   userSlice,
   themeSlice,
   blogsSlice,
+  languageSlice,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducers);
