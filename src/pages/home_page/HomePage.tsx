@@ -13,6 +13,7 @@ import {
 } from "../../redux/blogsSlice/blogsSlice";
 import BlogsCard from "../../components/BlogsCard";
 import NavDropdown from "../../components/NavDropdown";
+import Navbar from "../../components/Navbar";
 
 const HomePage = () => {
   const userSelector = useSelector<RootState>(
@@ -78,19 +79,19 @@ const HomePage = () => {
                   className="drawer-overlay"
                 ></label>
 
-                <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
-                  <div className="flex bg-[#D0E5E3]">
+                <ul className="menu p-0 w-80 min-h-full bg-base-200 text-base-content">
+                  <div className="flex bg-[#D0E5E3] p-3">
                     <div className="flex">
                       <img
                         className="sm:ml-10 "
                         src={AppLogo}
-                        height={50}
-                        width={50}
+                        height={60}
+                        width={60}
                       />
                     </div>
-                    <div className="flex self-center">
+                    <div className="flex self-center ml-5">
                       <Link
-                        className="btn btn-secondary btn-sm shadow-lg shadow-[#FAA1D4] shadow-500/50 mr-5 text-white w-25 rounded-none"
+                        className="btn btn-secondary rounded-lg btn-sm shadow-lg shadow-[#FAA1D4] shadow-500/50 mr-5 text-white w-25 rounded-none"
                         to={"/login"}
                       >
                         Sign In
@@ -107,13 +108,13 @@ const HomePage = () => {
           <div className="flex-col hidden md:block">
             <div className="flex justify-end">
               <Link
-                className="btn btn-secondary btn-sm shadow-lg shadow-[#FAA1D4] shadow-500/50 mr-5 text-white w-25 rounded-none"
+                className="btn btn-secondary btn-sm rounded-md shadow-lg shadow-[#FAA1D4] shadow-500/50 mr-5 text-white w-25 rounded-none"
                 to={"/login"}
               >
                 Sign In
               </Link>
               <Link
-                className="btn btn-secondary btn-sm shadow-lg shadow-[#FAA1D4] shadow-500/50 mr-5 text-white w-25 rounded-none"
+                className="btn btn-secondary btn-sm rounded-md shadow-lg shadow-[#FAA1D4] shadow-500/50 mr-5 text-white w-25 rounded-none"
                 to={"/signup"}
               >
                 Sign Up
@@ -223,7 +224,7 @@ const HomePage = () => {
           </div>
         </div>
       </header>
-
+      <Navbar />
       <main>
         <div className="flex items-center justify-center my-5">
           <img
