@@ -51,6 +51,11 @@ const HomePage = () => {
           </Link>
         </div>
         <div className="flex-none">
+          <Link className="btn btn-ghost w-24" to={"/cards"}>
+            Cards
+          </Link>
+        </div>
+        <div className="flex-none">
           <button
             className="btn btn-ghost"
             onClick={() => {

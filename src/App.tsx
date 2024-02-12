@@ -11,6 +11,7 @@ import "@smastrom/react-rating/style.css";
 import "react-toastify/dist/ReactToastify.min.css";
 import RestaurantDetailsPage from "./pages/restaurants_page/restaurantsdetails_page/RestaurantDetailsPage";
 import StoresPage from "./pages/stores_page/StoresPage";
+import CardsPage from "./pages/cards_page/CardsPage";
 
 function App() {
   const themeSelector = useSelector<RootState>(
@@ -25,8 +26,12 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/restaurants" element={<RestaurantsPage />} />
-          <Route  path="/stores" element={<StoresPage />}/>
-          <Route path="/restaurantsDetails/:restaurantId" element={<RestaurantDetailsPage/>} />
+          <Route path="/stores" element={<StoresPage />} />
+          <Route path="/cards" element={<CardsPage />} />
+          <Route
+            path="/restaurantsDetails/:restaurantId"
+            element={<RestaurantDetailsPage />}
+          />
         </Routes>
       </BrowserRouter>
       <ToastContainer />
