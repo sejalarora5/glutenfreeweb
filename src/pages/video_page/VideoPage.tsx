@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import Header from '../../components/Header';
+import Navbar from '../../components/Navbar';
 
 
 export interface Video {
@@ -56,7 +57,7 @@ const VideoPage = () => {
 
     return (
         <div>
-            <Header />
+            <Navbar />
             <div className="flex items-center justify-center text-pink-300 text-3xl font-semibold pt-10">
                 VIDEOS
             </div>
