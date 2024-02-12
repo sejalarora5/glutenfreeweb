@@ -1,42 +1,15 @@
-import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import NavDropdown from "./NavDropdown";
 import NavDrawerComponent from "./NavDrawerComponent";
 import AppLogo from "../assets/appIcon.png";
-const Navbar = () => {
-  const LinkArray: Array<{ name: string; link: string }> = useMemo(() => {
-    return [
-      {
-        name: "Recipes",
-        link: "/recipes",
-      },
-      {
-        name: "Videos",
-        link: "/videos",
-      },
-      {
-        name: "Gluten Free eBook",
-        link: "/gluten_free_ebook",
-      },
-      {
-        name: "Settings",
-        link: "/settings",
-      },
-      {
-        name: "Our Story",
-        link: "/our_story",
-      },
-      {
-        name: "Right to information",
-        link: "/rti",
-      },
-      {
-        name: "FAQ to information",
-        link: "/faq",
-      },
-    ];
-  }, []);
+import { useSelector } from "react-redux";
+import { UserStateType } from "../redux/userSlice/userSlice";
+import { RootState } from "../redux/store";
 
+const Navbar = () => {
+  const userSelector = useSelector<RootState>(
+    (state) => state.userSlice
+  ) as UserStateType;
   return (
     <>
       <header className="navbar bg-base-100">
@@ -71,14 +44,6 @@ const Navbar = () => {
                   </svg>
                 </label>
               </div>
-              {/* <div className="flex">
-                    <img
-                      className="sm:ml-10 "
-                      src={AppLogo}
-                      height={50}
-                      width={50}
-                    />
-                  </div> */}
               <div className="drawer-side">
                 <label
                   htmlFor="my-drawer-4"
@@ -97,12 +62,28 @@ const Navbar = () => {
                       />
                     </div>
                     <div className="flex self-center ml-5">
-                      <Link
-                        className="btn btn-secondary rounded-lg btn-sm shadow-lg shadow-[#FAA1D4] shadow-500/50 mr-5 text-white w-25 rounded-none"
-                        to={"/login"}
-                      >
-                        Sign In
-                      </Link>
+                      {userSelector.token !== "" ? (
+                        <div>
+                          <h3 className="text text-[#3F4953] font-medium p-1">
+                            {userSelector.userData.name}
+                          </h3>
+                          <Link
+                            className="btn btn-secondary rounded-lg btn-sm shadow-md shadow-[#FAA1D4] shadow-500/50 mr-5 text-white w-25 rounded-none"
+                            to={"/login"}
+                          >
+                            View Profile
+                          </Link>
+                        </div>
+                      ) : (
+                        <>
+                          <Link
+                            className="btn btn-secondary rounded-lg btn-sm shadow-md shadow-[#FAA1D4] shadow-500/50 mr-5 text-white w-25 rounded-none"
+                            to={"/login"}
+                          >
+                            Sign In
+                          </Link>
+                        </>
+                      )}
                     </div>
                   </div>
 
@@ -114,18 +95,31 @@ const Navbar = () => {
           </div>
           <div className="flex-col hidden md:block">
             <div className="flex justify-end">
-              <Link
-                className="btn btn-secondary btn-sm rounded-md shadow-lg shadow-[#FAA1D4] shadow-500/50 mr-5 text-white w-25 rounded-none"
-                to={"/login"}
-              >
-                Sign In
-              </Link>
-              <Link
-                className="btn btn-secondary btn-sm rounded-md shadow-lg shadow-[#FAA1D4] shadow-500/50 mr-5 text-white w-25 rounded-none"
-                to={"/signup"}
-              >
-                Sign Up
-              </Link>
+              {userSelector.token !== "" ? (
+                <div className="flex">
+                  <button className="btn btn-secondary btn-sm rounded-md shadow-lg shadow-[#FAA1D4] shadow-500/50 mr-5 text-white w-25 rounded-none">
+                    Hi, {userSelector.userData.name.split(" ")[0]}!
+                  </button>
+                  <button className="btn btn-sm bg-transparent hover:bg-secondary font-semibold hover:text-white py-2 px-4 border border-[#FAA1D4] hover:border-transparent rounded mr-4">
+                    Logout
+                  </button>
+                </div>
+              ) : (
+                <>
+                  <Link
+                    className="btn btn-secondary btn-sm rounded-md shadow-lg shadow-[#FAA1D4] shadow-500/50 mr-5 text-white w-25 rounded-none"
+                    to={"/login"}
+                  >
+                    Sign In
+                  </Link>
+                  <Link
+                    className="btn btn-secondary btn-sm rounded-md shadow-lg shadow-[#FAA1D4] shadow-500/50 mr-5 text-white w-25 rounded-none"
+                    to={"/signup"}
+                  >
+                    Sign Up
+                  </Link>
+                </>
+              )}
             </div>
             <div className="flex justify-end">
               <div className="flex-none ">
@@ -185,48 +179,6 @@ const Navbar = () => {
                   <NavDropdown />
                 </ul>
               </div>
-              {/* <div className="flex-none">
-                    <button
-                      className="btn btn-ghost"
-                      onClick={() => {
-                        appDispatch(switchTheme());
-                      }}
-                    >
-                      <svg
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        className="w-6 h-6"
-                      >
-                        <path
-                          d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-                          className="fill-sky-400/20 stroke-sky-500"
-                        ></path>
-                        <path
-                          d="M12 4v1M17.66 6.344l-.828.828M20.005 12.004h-1M17.66 17.664l-.828-.828M12 20.01V19M6.34 17.664l.835-.836M3.995 12.004h1.01M6 6l.835.836"
-                          className="stroke-sky-500"
-                        ></path>
-                      </svg>
-                    </button>
-                  </div> */}
-
-              {/* <div className="flex-none">
-                    {userSelector.token !== "" ? (
-                      <div className="avatar placeholder mx-5">
-                        <div className="bg-neutral text-neutral-content rounded-full w-8">
-                          <span className="text-xs">
-                            {userSelector.userData.name.charAt(0).toUpperCase()}
-                          </span>
-                        </div>
-                      </div>
-                    ) : (
-                      <Link className="btn btn-primary w-24 m-5" to={"/login"}>
-                        Login
-                      </Link>
-                    )}
-                  </div> */}
             </div>
           </div>
         </div>
