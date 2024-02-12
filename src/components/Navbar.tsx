@@ -138,7 +138,7 @@ const Navbar = () => {
               <div className="flex-none">
                 <Link
                   className="btn btn-ghost text-primary w-18"
-                  to={"/stores"}
+                  to={"/cards"}
                 >
                   Cards
                 </Link>

@@ -20,6 +20,7 @@ import Odia from "../../assets/pdf/gfOd.pdf";
 import Punjabi from "../../assets/pdf/gfPb.pdf";
 import Tamil from "../../assets/pdf/gfTa.pdf";
 import Telgu from "../../assets/pdf/gfTe.pdf";
+import Navbar from "../../components/Navbar";
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   "pdfjs-dist/build/pdf.worker.min.js",
@@ -110,6 +111,7 @@ const CardsPage = () => {
 
   return (
     <div>
+      <Navbar />
       <div className="flex flex-row justify-between mx-10 my-5">
         <h1 className="text-4xl font-semibold text-pink-400">
           Gluten-Free Cards
