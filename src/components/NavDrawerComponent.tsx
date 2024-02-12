@@ -5,6 +5,10 @@ const NavDrawerComponent = () => {
   const LinkArray: Array<{ name: string; link: string }> = useMemo(() => {
     return [
       {
+        name: "Home",
+        link: "/",
+      },
+      {
         name: "Recipes",
         link: "/recipes",
       },
