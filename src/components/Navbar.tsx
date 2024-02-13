@@ -56,7 +56,7 @@ const Navbar = () => {
                   <div className="flex bg-[#D0E5E3] p-3">
                     <div className="flex">
                       <img
-                        className="sm:ml-10 "
+                        className="img ml-2"
                         src={AppLogo}
                         height={60}
                         width={60}
