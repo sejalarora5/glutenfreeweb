@@ -156,6 +156,7 @@ const ShopsPage = () => {
                     className="input input-ghost mx-5"
                     onPlaceSelected={(place) => {
                       const position = place.geometry?.location;
+
                       if (
                         position?.lat() !== undefined &&
                         position.lng() !== undefined
@@ -279,7 +280,7 @@ const ShopsPage = () => {
                       Close
                     </button>
                   </div>
-                  <ShopsDetailModal/>
+                  <ShopsDetailModal />
                 </div>
               </div>
             </dialog>
