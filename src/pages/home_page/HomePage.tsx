@@ -4,6 +4,7 @@ import { AppDispatch, RootState } from "../../redux/store";
 import { UserStateType, logOutUser } from "../../redux/userSlice/userSlice";
 import { Link } from "react-router-dom";
 import HomeBanner from "../../assets/banner.jpg";
+import HomeBanner1 from "../../assets/banner1.jpeg";
 import { switchTheme } from "../../redux/themeSlice/themeSlice";
 import { useEffect } from "react";
 import {
@@ -32,9 +33,9 @@ const HomePage = () => {
     <div className="w-screen h-screen" data-theme="mytheme">
       <Navbar />
       <main>
-        <div className="flex items-center justify-center my-5">
+        <div className="flex items-center justify-center content-stretch my-5">
           <img
-            className="object-cover h-96 scale-110"
+            className="object-fill md:object-scale-down sm:h-70 md:h-96 h:96 lg:h-96 scale-120 sm:scale-110"
             src={HomeBanner}
             alt="app banner"
           />
