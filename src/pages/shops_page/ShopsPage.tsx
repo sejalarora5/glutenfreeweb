@@ -4,9 +4,21 @@ import { AppDispatch, RootState } from "../../redux/store";
 import { ShopsStateType, fetchShops } from "../../redux/shopsSlice/shopsSlice";
 import { useNavigate } from "react-router-dom";
 import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
-import { fetchShopsFilter } from "../../redux/shopsFilterSlice/shopsFilterSlice";
+import {
+  ShopsFilterStateType,
+  fetchShopsFilter,
+} from "../../redux/shopsFilterSlice/shopsFilterSlice";
 import FilterSvg from "../../assets/filter-6535.svg";
 import AutoComplete from "react-google-autocomplete";
+import NavDrawerComponent from "../../components/NavDrawerComponent";
+import Card from "../../components/Card";
+import { UserStateType } from "../../redux/userSlice/userSlice";
+import {
+  ShopsDetailStateType,
+  fetchShopsDetail,
+} from "../../redux/shopsDetailSlice/shopsDetailSlice";
+import Cross from "../../assets/icons_svg/ic_cross.svg";
+import ShopsDetailModal from "../../components/ShopsDetailModal";
 
 export declare type Library =
   | "core"
@@ -37,12 +49,26 @@ const ShopsPage = () => {
   const [position, setPosition] = useState({ latitude: -1, longitude: -1 });
   const [isRestaurant, setIsRestaurant] = useState(true);
   const [filterModal, setFilterModal] = useState(false);
+  const [searchShop, setSearchShop] = useState("");
+  const [detailModal, setDetailModal] = useState<number | "close">("close");
 
   const appDispatch = useDispatch<AppDispatch>();
 
   const shopsSelector = useSelector<RootState>(
     (state) => state.shopsSlice
   ) as ShopsStateType;
+
+  const shopsFilterSelector = useSelector<RootState>(
+    (state) => state.shopsFilterSlice
+  ) as ShopsFilterStateType;
+
+  const shopsDetailSelector = useSelector<RootState>(
+    (state) => state.shopsDetailSlice
+  ) as ShopsDetailStateType;
+
+  const userSelector = useSelector<RootState>(
+    (state) => state.userSlice
+  ) as UserStateType;
 
   useEffect(() => {
     console.log("first use effect called");
@@ -74,68 +100,189 @@ const ShopsPage = () => {
 
   return (
     <div>
-      <div className="flex flex-row justify-center">
-        <div>
-          <div className="flex flex-row w-96 bg-red-400">
-            <div className="flex-none">
-              <button
-                onClick={() => {
-                  setFilterModal(true);
-                }}
-                className="btn btn-square btn-ghost"
-              >
-                <img src={FilterSvg} />
-              </button>
-
-              <dialog
-                open={filterModal}
-                className="modal modal-bottom sm:modal-middle"
-              >
-                <div className="modal-box">
-                  <button
-                    onClick={() => {
-                      setFilterModal(false);
-                    }}
-                    className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
-                  >
-                    ✕
-                  </button>
-
-                  <h3 className="font-bold text-lg">Filter</h3>
-
-                  <ul>
-                    {
-                      //todo
-                    }
-                  </ul>
+      <div className="flex flex flex-row justify-center">
+        <div className="w-96 mx-5">
+          <div className="flex flex-col items-center">
+            <div className="flex flex-row mt-2">
+              <div className="flex-none">
+                <div className="drawer drawer-start z-10">
+                  <input
+                    id="my-drawer-4"
+                    type="checkbox"
+                    className="drawer-toggle"
+                  />
+                  <div className="drawer-content">
+                    <label
+                      htmlFor="my-drawer-4"
+                      className="btn btn-square btn-ghost"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        className="inline-block w-8 h-8 stroke-current"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M4 6h16M4 12h16M4 18h16"
+                        ></path>
+                      </svg>
+                    </label>
+                  </div>
+                  <div className="drawer-side">
+                    <label
+                      htmlFor="my-drawer-4"
+                      aria-label="close sidebar"
+                      className="drawer-overlay"
+                    ></label>
+                    <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
+                      <NavDrawerComponent />
+                    </ul>
+                  </div>
                 </div>
-              </dialog>
-            </div>
-            <div>
-              {isLoaded && (
-                <AutoComplete
-                  defaultValue={
-                    shopsSelector.data.success === true
-                      ? shopsSelector.data.data.restaurant[0].location
-                      : ""
-                  }
-                  apiKey={import.meta.env.VITE_MAPS_KEY}
-                  className="input input-bordered mx-5"
-                  onPlaceSelected={(place) => {
-                    const position = place.geometry?.location;
-                    if (
-                      position?.lat() !== undefined &&
-                      position.lng() !== undefined
-                    ) {
-                      setPosition({
-                        latitude: position.lat(),
-                        longitude: position.lng(),
-                      });
+              </div>
+
+              <div>
+                {isLoaded && (
+                  <AutoComplete
+                    defaultValue={
+                      shopsSelector.data.success === true
+                        ? shopsSelector.data.data.restaurant[0].location
+                        : ""
                     }
+                    apiKey={import.meta.env.VITE_MAPS_KEY}
+                    className="input input-ghost mx-5"
+                    onPlaceSelected={(place) => {
+                      const position = place.geometry?.location;
+                      if (
+                        position?.lat() !== undefined &&
+                        position.lng() !== undefined
+                      ) {
+                        setPosition({
+                          latitude: position.lat(),
+                          longitude: position.lng(),
+                        });
+                      }
+                    }}
+                  />
+                )}
+              </div>
+              <div className="flex-none">
+                <button
+                  onClick={() => {
+                    setFilterModal(true);
                   }}
-                />
-              )}
+                  className="btn btn-square btn-ghost"
+                >
+                  <img src={FilterSvg} />
+                </button>
+
+                <dialog
+                  open={filterModal}
+                  className="modal modal-bottom sm:modal-middle"
+                >
+                  <div className="modal-box">
+                    <button
+                      onClick={() => {
+                        setFilterModal(false);
+                      }}
+                      className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+                    >
+                      ✕
+                    </button>
+
+                    <h3 className="font-bold text-lg">Filter</h3>
+
+                    <ul>
+                      {
+                        //todo filter modal
+                      }
+                    </ul>
+                  </div>
+                </dialog>
+              </div>
             </div>
+
+            <div className="my-2 ">
+              <input
+                value={searchShop}
+                onChange={(it) => {
+                  setSearchShop(it.target.value);
+                }}
+                placeholder="Search"
+                className="input input-bordered w-80"
+              />
+            </div>
+          </div>
+          <div>
+            <div role="tablist" className="tabs tabs-bordered">
+              <a
+                onClick={() => setIsRestaurant(true)}
+                role="tab"
+                className={
+                  isRestaurant ? "tab tab-active text-pink-400" : "tab"
+                }
+              >
+                Restaurants
+              </a>
+              <a
+                onClick={() => setIsRestaurant(false)}
+                role="tab"
+                className={
+                  isRestaurant ? "tab" : "tab tab-active text-pink-400"
+                }
+              >
+                Grocery Stores
+              </a>
+            </div>
+            <ul className="h-screen no-scrollbar overflow-y-auto">
+              {shopsSelector.data.success &&
+                shopsSelector.data.data.restaurant
+                  .filter((it) =>
+                    it.name.toLowerCase().includes(searchShop.toLowerCase())
+                  )
+                  .map((it) => (
+                    <li key={it.id} className="my-4">
+                      <Card
+                        image={it.banner}
+                        rating={it.rating}
+                        title={it.name}
+                        onClick={() => {
+                          setDetailModal(it.id);
+                          appDispatch(
+                            fetchShopsDetail({
+                              token: userSelector.token,
+                              userId: userSelector.userData.token,
+                              restaurantId: it.id,
+                            })
+                          );
+                        }}
+                      />
+                    </li>
+                  ))}
+            </ul>
+
+            <dialog
+              open={detailModal !== "close"}
+              id="detailModal"
+              className="modal modal-bottom sm:modal-middle"
+            >
+              <div className="modal-box">
+                <div>
+                  <div className="modal-action">
+                    <button
+                      onClick={() => setDetailModal("close")}
+                      className="btn"
+                    >
+                      Close
+                    </button>
+                  </div>
+                  <ShopsDetailModal/>
+                </div>
+              </div>
+            </dialog>
           </div>
         </div>
         <div className="h-screen flex-1 my-5 mr-5 hidden sm:flex">
@@ -170,7 +317,7 @@ const ShopsPage = () => {
           )}
         </div>
       </div>
-      {shopsSelector.loading && (
+      {(shopsSelector.loading || shopsDetailSelector.loading) && (
         <span className="loading loading-dots loading-lg z-10 absolute top-0 left-0 right-0 bottom-0 m-auto bg-pink-400"></span>
       )}
     </div>

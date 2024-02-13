@@ -17,11 +17,12 @@ import languageSlice from "./languageSlice/languageSlice";
 import shopsSlice from "./shopsSlice/shopsSlice";
 import { ShopsFilterData } from "./shopsFilterSlice/shopsFilterSlice";
 import shopsFilterSlice from "./shopsFilterSlice/shopsFilterSlice";
+import shopsDetailSlice from "./shopsDetailSlice/shopsDetailSlice";
 
 const persistConfig = {
   key: "root",
   storage,
-  blacklist: ["blogs", "language", "shops", "shopsFilter"],
+  blacklist: ["blogs", "language", "shops", "shopsFilter", "shopsDetail"],
 };
 
 const rootReducers = combineReducers({
@@ -31,6 +32,7 @@ const rootReducers = combineReducers({
   languageSlice,
   shopsSlice,
   shopsFilterSlice,
+  shopsDetailSlice,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducers);
