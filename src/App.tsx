@@ -12,6 +12,7 @@ import "react-toastify/dist/ReactToastify.min.css";
 import RestaurantDetailsPage from "./pages/restaurants_page/restaurantsdetails_page/RestaurantDetailsPage";
 import StoresPage from "./pages/stores_page/StoresPage";
 import CardsPage from "./pages/cards_page/CardsPage";
+import ShopsPage from "./pages/shops_page/ShopsPage";
 
 function App() {
   const themeSelector = useSelector<RootState>(
@@ -32,10 +33,11 @@ function App() {
             path="/restaurantsDetails/:restaurantId"
             element={<RestaurantDetailsPage />}
           />
+          <Route path="/shops" element={<ShopsPage />} />
         </Routes>
       </BrowserRouter>
       <ToastContainer />
-    </div> 
+    </div>
   );
 }
 
