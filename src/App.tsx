@@ -35,7 +35,7 @@ function App() {
         </Routes>
       </BrowserRouter>
       <ToastContainer />
-    </div>
+    </div> 
   );
 }
 
