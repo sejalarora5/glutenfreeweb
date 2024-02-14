@@ -51,6 +51,8 @@ const ShopsPage = () => {
   const [filterModal, setFilterModal] = useState(false);
   const [searchShop, setSearchShop] = useState("");
   const [detailModal, setDetailModal] = useState<number | "close">("close");
+  const [restaurantFilterCheckedState, setRestauarantFilterCheckedState] =
+    useState<Array<boolean>>([]);
 
   const appDispatch = useDispatch<AppDispatch>();
 
@@ -198,7 +200,38 @@ const ShopsPage = () => {
 
                     <ul>
                       {
-                        //todo filter modal
+                        //todo
+                        shopsFilterSelector.data.success &&
+                          shopsFilterSelector.data.data[0].cuisine.map(
+                            (it, index) => {
+                              return (
+                                <li key={it.id}>
+                                  {
+                                    <label className="cursor-pointer label">
+                                      <span className="label-text">
+                                        {it.name}
+                                      </span>
+                                      <input
+                                        type="checkbox"
+                                        className="checkbox checkbox-secondary"
+                                        checked={
+                                          restaurantFilterCheckedState[index]
+                                        }
+                                        onChange={() => {
+                                          setRestauarantFilterCheckedState(
+                                            (prev) =>
+                                              prev.map((item, _index) =>
+                                                _index === index ? !item : item
+                                              )
+                                          );
+                                        }}
+                                      />
+                                    </label>
+                                  }
+                                </li>
+                              );
+                            }
+                          )
                       }
                     </ul>
                   </div>
