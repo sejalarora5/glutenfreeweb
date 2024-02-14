@@ -24,7 +24,7 @@ const AuthField: FC<props> = ({
 }) => {
   return (
     <div className="mt-4 flex flex-col">
-      <div className="flex h-14 w-80 bg-[#F3F3F3] rounded">
+      <div className="flex h-13 w-80 bg-[#F3F3F3] rounded">
         <img src={imageUrl} className="ml-3 w-6 object-fill self-center" />
         <div className="flex flex-col w-full">
           <label className="ml-3 mt-1 text-[#808080] text-md">{label}</label>
@@ -32,7 +32,7 @@ const AuthField: FC<props> = ({
             type={type}
             name={name}
             placeholder={label}
-            className="input input-sm ml-0 h-10 max-w-xs bg-[#F3F3F3] w-auto outline-none focus:bg-[#F3F3F3] focus:outline-none focus:border-none appearance-none "
+            className="input input-sm ml-0 h-8 max-w-xs bg-[#F3F3F3] w-auto outline-none focus:bg-[#F3F3F3] focus:outline-none focus:border-none appearance-none "
             value={value}
             onBlur={onBlur}
             onChange={onChange}

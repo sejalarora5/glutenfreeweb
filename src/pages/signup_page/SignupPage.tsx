@@ -70,11 +70,15 @@ const SignupPage = () => {
     }
   };
   const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   function togglePasswordVisibility() {
     setShowPassword((prevState: any) => !prevState);
   }
+  function toggleConfirmPasswordVisibility() {
+    setShowConfirmPassword((prevState: any) => !prevState);
+  }
   return (
-    <div className="flex bg-cover  bg-no-repeat sm:h-screen lg:h-screen bg-center bg-[url('/src/assets/logo.png')]">
+    <div className="flex bg-cover overflow-hidden bg-no-repeat sm:h-screen lg:h-screen bg-center bg-[url('/src/assets/logo.png')]">
       <div className="backdrop-blur-sm backdrop-brightness-50 bg-white/60">
         <div className="flex justify-center w-screen">
           <div className="px-8 py-5 bg-base-100 card shadow-[rgba(0,_0,_0,_0.4)_0px_30px_90px] mt-4">
@@ -112,22 +116,6 @@ const SignupPage = () => {
                   <img src={appIcon} alt="app icon" width={130} height={130} />
                   <div className="sm:flex sm:flex-row">
                     <div className="flex flex-col items-center">
-                      {/* <div className="mt-5">
-                        <input
-                          type="text"
-                          name="fullName"
-                          placeholder="Full Name"
-                          className="input input-bordered input-secondary w-80 "
-                          value={values.fullName}
-                          onBlur={handleBlur}
-                          onChange={handleChange}
-                        />
-                        <p className="mt-1  text-red-500 text-sm ">
-                          {errors.fullName &&
-                            touched.fullName &&
-                            errors.fullName}
-                        </p>
-                      </div> */}
                       <AuthField
                         type="text"
                         name="fullName"
@@ -151,10 +139,10 @@ const SignupPage = () => {
                         error={errors.emailId}
                       />
                       <div className="mt-4 flex flex-col">
-                        <div className="flex h-15 w-80 bg-[#F3F3F3] rounded">
+                        <div className="flex h-13 w-80 bg-[#F3F3F3] rounded">
                           <img
                             src={passwordIcon}
-                            className="ml-3 h-8 w-6 object-fill self-center"
+                            className="ml-3 w-6 object-fill self-center"
                           />
                           <div className="flex flex-col w-full">
                             <label className="ml-3 mt-1 text-[#808080] text-md">
@@ -164,7 +152,7 @@ const SignupPage = () => {
                               type={showPassword ? "text" : "password"}
                               name="password"
                               placeholder="Password here"
-                              className="input input-sm ml-0 max-w-xs bg-[#F3F3F3] w-auto outline-none focus:bg-[#F3F3F3] focus:outline-none focus:border-none appearance-none "
+                              className="input input-sm h-8 ml-0 max-w-xs bg-[#F3F3F3] w-auto outline-none focus:bg-[#F3F3F3] focus:outline-none focus:border-none appearance-none "
                               value={values.password}
                               onBlur={handleBlur}
                               onChange={handleChange}
@@ -177,9 +165,15 @@ const SignupPage = () => {
                               className="btn w-auto hover:border-none focus:outline-none hover:bg-transparent"
                             >
                               {showPassword ? (
-                                <img src={OpenEyeSvg} className="h-10" />
+                                <img
+                                  src={OpenEyeSvg}
+                                  className="h-10 w-10 mt-3 outline-none"
+                                />
                               ) : (
-                                <img src={EyeSvg} className="h-10" />
+                                <img
+                                  src={EyeSvg}
+                                  className="h-10 w-10 mt-3 outline-none"
+                                />
                               )}
                             </button>
                           </div>
@@ -191,20 +185,20 @@ const SignupPage = () => {
                         </p>
                       </div>
                       <div className="mt-4 flex flex-col">
-                        <div className="flex h-15 w-80 bg-[#F3F3F3] rounded">
+                        <div className="flex h-13 w-80 bg-[#F3F3F3] rounded">
                           <img
                             src={passwordIcon}
-                            className="ml-3 h-8 w-6 object-fill self-center"
+                            className="ml-3 w-6 object-fill self-center"
                           />
                           <div className="flex flex-col w-full">
                             <label className="ml-3 mt-1 text-[#808080] text-md">
                               Confirm Password
                             </label>
                             <input
-                              type={showPassword ? "text" : "password"}
+                              type={showConfirmPassword ? "text" : "password"}
                               name="confirmPassword"
                               placeholder="Confirm Password"
-                              className="input input-sm ml-0 max-w-xs bg-[#F3F3F3] w-auto outline-none focus:bg-[#F3F3F3] focus:outline-none focus:border-none appearance-none "
+                              className="input input-sm ml-0 h-8 max-w-xs bg-[#F3F3F3] w-auto outline-none focus:bg-[#F3F3F3] focus:outline-none focus:border-none appearance-none "
                               value={values.confirmPassword}
                               onBlur={handleBlur}
                               onChange={handleChange}
@@ -213,13 +207,19 @@ const SignupPage = () => {
                           <div className="">
                             <button
                               type="button"
-                              onClick={togglePasswordVisibility}
+                              onClick={toggleConfirmPasswordVisibility}
                               className="btn w-auto hover:border-none focus:outline-none hover:bg-transparent"
                             >
-                              {showPassword ? (
-                                <img src={OpenEyeSvg} className="h-10" />
+                              {showConfirmPassword ? (
+                                <img
+                                  src={OpenEyeSvg}
+                                  className="h-10 w-10 mt-3 outline-none"
+                                />
                               ) : (
-                                <img src={EyeSvg} className="h-10" />
+                                <img
+                                  src={EyeSvg}
+                                  className="h-10 w-10 mt-3 outline-none"
+                                />
                               )}
                             </button>
                           </div>
@@ -230,20 +230,6 @@ const SignupPage = () => {
                             errors.confirmPassword}
                         </p>
                       </div>
-                      {/* <div className="mt-5">
-                        <input
-                          type="text"
-                          name="city"
-                          placeholder="City"
-                          className="input input-bordered input-secondary w-80"
-                          value={values.city}
-                          onBlur={handleBlur}
-                          onChange={handleChange}
-                        />
-                        <p className="mt-1  text-red-500 text-sm">
-                          {errors.city && touched.city && errors.city}
-                        </p>
-                      </div> */}
                     </div>
                     <div className="flex flex-col items-center sm:ml-5">
                       <AuthField
@@ -311,38 +297,6 @@ const SignupPage = () => {
                           </label>
                         </div>
                       </div>
-                      {/* <div className="mt-5">
-                        <input
-                          type="password"
-                          name="password"
-                          placeholder="Password"
-                          className="input input-bordered input-secondary w-80"
-                          value={values.password}
-                          onBlur={handleBlur}
-                          onChange={handleChange}
-                        />
-                        <p className="mt-1 text-red-500 text-sm">
-                          {errors.password &&
-                            touched.password &&
-                            errors.password}
-                        </p>
-                      </div>
-                      <div className="mt-5">
-                        <input
-                          type="password"
-                          name="confirmPassword"
-                          placeholder="Confirm Password"
-                          className="input input-bordered input-secondary w-80"
-                          value={values.confirmPassword}
-                          onBlur={handleBlur}
-                          onChange={handleChange}
-                        />
-                        <p className="mt-1  text-red-500 text-sm">
-                          {errors.confirmPassword &&
-                            touched.confirmPassword &&
-                            errors.confirmPassword}
-                        </p>
-                      </div> */}
                     </div>
                   </div>
                   <div className="mt-4">
@@ -363,24 +317,6 @@ const SignupPage = () => {
                       Already have an account?{" "}
                       <span className="text text-[#9AC5C1]">Sign In</span>
                     </Link>
-                    {/* <div className="mt-8">
-                      <button
-                        className="btn btn-secondary w-52"
-                        disabled={isSubmitting}
-                        type="submit"
-                      >
-                        Sign In
-                      </button>
-                    </div> */}
-                    {/* <button
-                      type="button"
-                      onClick={() => {
-                        navigate(-1);
-                      }}
-                      className="btn btn-ghost w-52 mt-5"
-                    >
-                      Back to login
-                    </button> */}
                   </div>
                 </form>
               )}

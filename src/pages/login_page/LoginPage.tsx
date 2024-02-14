@@ -41,7 +41,7 @@ const LoginPage = () => {
       );
       if (data.success) {
         appDispatch(saveUser({ token: data.token, userData: data.data }));
-        navigate(-1);
+        navigate("/");
         toast.success(data.message, { position: toast.POSITION.TOP_CENTER });
         resetForm();
       }
@@ -104,11 +104,11 @@ const LoginPage = () => {
                     isError={touched.emailId}
                     error={errors.emailId}
                   />
-                  <div className="mt-5 flex flex-col">
-                    <div className="flex h-15 w-80 bg-[#F3F3F3] rounded">
+                  <div className="mt-4 flex flex-col">
+                    <div className="flex h-13 w-80 bg-[#F3F3F3] rounded">
                       <img
                         src={passwordIcon}
-                        className="ml-3 h-8 w-6 object-fill self-center"
+                        className="ml-3 w-6 object-fill self-center"
                       />
                       <div className="flex flex-col w-full">
                         <label className="ml-3 mt-1 text-[#808080] text-md">
@@ -118,7 +118,7 @@ const LoginPage = () => {
                           type={showPassword ? "text" : "password"}
                           name="password"
                           placeholder="Password here"
-                          className="input input-sm ml-0 max-w-xs bg-[#F3F3F3] w-auto outline-none focus:bg-[#F3F3F3] focus:outline-none focus:border-none appearance-none "
+                          className="input input-sm h-8 ml-0 max-w-xs bg-[#F3F3F3] w-auto outline-none focus:bg-[#F3F3F3] focus:outline-none focus:border-none appearance-none "
                           value={values.password}
                           onBlur={handleBlur}
                           onChange={handleChange}
