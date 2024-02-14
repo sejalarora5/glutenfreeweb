@@ -7,7 +7,7 @@ import Briefcase from "../../assets/briefcase.svg";
 import AutoComplete from "react-google-autocomplete";
 import { useEffect, useState } from 'react';
 import { useJsApiLoader } from '@react-google-maps/api';
-import axios, { AxiosRequestConfig } from 'axios';
+import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { UserStateType } from '../../redux/userSlice/userSlice';
 import { RootState } from '../../redux/store';
@@ -54,7 +54,6 @@ export const AddBusiness = () => {
 
     const [position, setPosition] = useState({ latitude: -1, longitude: -1 });
     const [name, setName] = useState<string>();
-    const [cusine, setCusine] = useState<string>();
     const [place, setPlace] = useState<string>();
     const [Cus, setCus] = useState<Cuisine[]>([]);
     const [cusineFilterData, setcusineFilterData] =
@@ -109,7 +108,6 @@ export const AddBusiness = () => {
             setCusineFilterCheckedState(
                 new Array(data.data[0].cuisine.length).fill(false)
             );
-            console.log(cusineFilterData, "cusineFilterDatacusineFilterData")
         } catch (error) {
             console.log(error);
         }
@@ -155,9 +153,6 @@ export const AddBusiness = () => {
             console.log('Done');
         }
     };
-
-
-    console.log(userSelector.token, "userSelector.token")
 
     const filterModal = () => {
         return (
@@ -220,7 +215,7 @@ export const AddBusiness = () => {
             </div>
 
             <div className='flex items-center justify-center h-screen'>
-                <div className='bg-gray-100 p-10 shadow-lg rounded-lg' style={{ boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)', width: '300px' }}>
+                <div className='bg-gray-100 p-6 sm:p-16 lg:p-20 shadow-lg rounded-lg box-shadow-custom width-custom sm:width-mobile lg:width-web' >
                     <div className='flex flex-col items-center justify-center'>
                         <CustomInput
                             placeholder={'Business Type'}
@@ -252,7 +247,7 @@ export const AddBusiness = () => {
                                 <AutoComplete
                                     defaultValue={''}
                                     apiKey={'AIzaSyCxwZbZ0fWFCgM8xqY9pLmhdAsHd9h3iqw'}
-                                    className="pl-10 pr-4 py-3 bg-gray-200 border rounded-md focus:outline-none shadow-md focus:border-gray-300"
+                                    className="pl-10 pr-10 py-3 md:text-md text-sm w-72 sm:w-64 md:w-72 lg:w-90 bg-gray-200 border rounded-md focus:outline-none shadow-md focus:border-gray-300"
                                     onPlaceSelected={(place) => {
                                         const position = place.geometry?.location;
                                         if (
@@ -281,7 +276,8 @@ export const AddBusiness = () => {
                                     alert('Please fill all the details');
                                 }
                             }}
-                            className="px-4 py-3 bg-[#b87290] text-white rounded-md w-56"
+                            // className="px-4 py-3 bg-[#b87290] text-white rounded-md w-56"
+                            className="btn btn-primary pl-10 pr-10 py-3 md:text-md text-sm w-72 sm:w-64 md:w-72 lg:w-90 bg-[#b87290] text-white rounded-md focus:outline-none shadow-md font-semibold"
                         >
                             Save
                         </button>

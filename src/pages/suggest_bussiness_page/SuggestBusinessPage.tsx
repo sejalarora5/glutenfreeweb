@@ -1,4 +1,3 @@
-import React from 'react'
 import Restaurant from "../../assets/restaurant.svg";
 import Grocery from "../../assets/shopping-basket.svg";
 import { Link, useNavigate } from 'react-router-dom';

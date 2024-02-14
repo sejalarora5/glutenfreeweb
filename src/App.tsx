@@ -15,6 +15,8 @@ import VideoPage from "./pages/video_page/VideoPage";
 import CardsPage from "./pages/cards_page/CardsPage";
 import SuggestBusinessPage from "./pages/suggest_bussiness_page/SuggestBusinessPage";
 import { AddBusiness } from "./pages/suggest_bussiness_page/AddBusiness";
+import { Profile } from "./pages/Profile_page/Profile";
+import { EditProfile } from "./pages/Profile_page/EditProfile";
 
 function App() {
   const themeSelector = useSelector<RootState>(
@@ -36,6 +38,8 @@ function App() {
           <Route path="/cards" element={<CardsPage />} />
           <Route path="/suggestBusiness" element={<SuggestBusinessPage />} />
           <Route path="/addBusiness" element={<AddBusiness />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/editProfile" element={<EditProfile />} />
           <Route
             path="/restaurantsDetails/:restaurantId"
             element={<RestaurantDetailsPage />}
