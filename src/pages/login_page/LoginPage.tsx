@@ -140,7 +140,7 @@ const LoginPage = () => {
                 >
                   Login
                 </button>
-              </div>
+              </div> 
               <Link
                 to={"/signup"}
                 type="button"
