@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import { useSelector } from "react-redux";
 import { ShopsDetailStateType } from "../redux/shopsDetailSlice/shopsDetailSlice";
 import { RootState } from "../redux/store";
@@ -6,11 +6,21 @@ import { Rating } from "@smastrom/react-rating";
 import Phone from "../assets/icons_svg/ic_phone.svg";
 import WriteReview from "../assets/icons/ic_add_business.png";
 import AddBookMark from "../assets/icons/bookmark.png";
+import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
+import { string } from "yup";
+import { libraries } from "../pages/shops_page/ShopsPage";
+import ReviewCard from "./ReviewCard";
 
 const ShopsDetailModal = () => {
   const shopsDetailSelector = useSelector<RootState>(
     (state) => state.shopsDetailSlice
   ) as ShopsDetailStateType;
+
+  const { isLoaded } = useJsApiLoader({
+    id: "google-map-script",
+    googleMapsApiKey: import.meta.env.VITE_MAPS_KEY,
+    libraries,
+  });
 
   return (
     <div>
@@ -76,7 +86,51 @@ const ShopsDetailModal = () => {
             <h2 className="text-2xl font-extrabold">
               {shopsDetailSelector.data.data.avg_count.toString().slice(0, 3)}
             </h2>
+            <div>
+              <div className="h-40 flex my-2">
+                {isLoaded && (
+                  <GoogleMap
+                    mapContainerStyle={{
+                      flex: 1,
+                      borderRadius: 8,
+                    }}
+                    center={{
+                      lat: parseFloat(shopsDetailSelector.data.data.lat),
+                      lng: parseFloat(shopsDetailSelector.data.data.lng),
+                    }}
+                    zoom={12}
+                  >
+                    <Marker
+                      key={shopsDetailSelector.data.data.lat}
+                      position={{
+                        lat: parseFloat(shopsDetailSelector.data.data.lat),
+                        lng: parseFloat(shopsDetailSelector.data.data.lng),
+                      }}
+                    />
+                  </GoogleMap>
+                )}
+              </div>
+            </div>
+
+            <div>
+              <p>
+                {`Based on ${shopsDetailSelector.data.data.rating_count} ratings. View All`}{" "}
+              </p>
+              <div className="h-1 bg-black" />
+            </div>
           </div>
+          <ReviewCard
+            title={shopsDetailSelector.data.data.restaurant_rating.title}
+            description={
+              shopsDetailSelector.data.data.restaurant_rating.comment
+            }
+            date={shopsDetailSelector.data.data.restaurant_rating.date}
+            image={shopsDetailSelector.data.data.restaurant_rating.image}
+            name={shopsDetailSelector.data.data.restaurant_rating.name}
+            ratings={parseFloat(
+              shopsDetailSelector.data.data.restaurant_rating.star
+            )}
+          />
         </div>
       )}
     </div>
