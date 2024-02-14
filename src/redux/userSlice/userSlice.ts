@@ -36,6 +36,7 @@ const userSlice = createSlice({
     },
     logOutUser: () => initialState,
   },
+
 });
 
 export default userSlice.reducer;

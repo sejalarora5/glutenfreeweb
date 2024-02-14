@@ -163,7 +163,7 @@ const Navbar = () => {
               <div className="flex-none">
                 <Link
                   className="btn btn-ghost text-primary w-22"
-                  to={"/restaurants"}
+                  to={"/shops"}
                 >
                   Find Shops
                 </Link>
@@ -176,7 +176,7 @@ const Navbar = () => {
               <div className="flex-none">
                 <Link
                   className="btn btn-ghost text-primary w-18"
-                  to={"/stores"}
+                  to={"/blogs"}
                 >
                   Blogs
                 </Link>
