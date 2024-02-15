@@ -55,6 +55,7 @@ const LoginPage = () => {
         { email, password }
       );
       if (data.success) {
+        console.log(data.token + ' token login')
         appDispatch(saveUser({ token: data.token, userData: data.data }));
         navigate(-1);
         toast.success(data.message, { position: toast.POSITION.TOP_CENTER });
@@ -140,7 +141,7 @@ const LoginPage = () => {
                 >
                   Login
                 </button>
-              </div>
+              </div> 
               <Link
                 to={"/signup"}
                 type="button"

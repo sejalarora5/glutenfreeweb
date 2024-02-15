@@ -17,6 +17,7 @@ import SuggestBusinessPage from "./pages/suggest_bussiness_page/SuggestBusinessP
 import { AddBusiness } from "./pages/suggest_bussiness_page/AddBusiness";
 import { Profile } from "./pages/Profile_page/Profile";
 import { EditProfile } from "./pages/Profile_page/EditProfile";
+import ShopsPage from "./pages/shops_page/ShopsPage";
 
 function App() {
   const themeSelector = useSelector<RootState>(
@@ -44,6 +45,7 @@ function App() {
             path="/restaurantsDetails/:restaurantId"
             element={<RestaurantDetailsPage />}
           />
+          <Route path="/shops" element={<ShopsPage />} />
         </Routes>
       </BrowserRouter>
       <ToastContainer />

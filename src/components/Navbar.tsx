@@ -2,14 +2,17 @@ import { Link } from "react-router-dom";
 import NavDropdown from "./NavDropdown";
 import NavDrawerComponent from "./NavDrawerComponent";
 import AppLogo from "../assets/appIcon.png";
-import { useSelector } from "react-redux";
-import { UserStateType } from "../redux/userSlice/userSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { UserStateType, logOutUser } from "../redux/userSlice/userSlice";
 import { RootState } from "../redux/store";
+import { useState } from "react";
 
 const Navbar = () => {
   const userSelector = useSelector<RootState>(
     (state) => state.userSlice
   ) as UserStateType;
+  const dispatch = useDispatch();
+  const [modal, setModal] = useState(false)
   return (
     <>
       <header className="navbar bg-base-100">
@@ -96,16 +99,46 @@ const Navbar = () => {
           <div className="flex-col hidden md:block">
             <div className="flex justify-end">
               {userSelector.token !== "" ? (
-                <div className="flex">
-                  <button className="btn btn-secondary btn-sm rounded-md shadow-lg shadow-[#FAA1D4] shadow-500/50 mr-5 text-white w-25 rounded-none">
+                <div className="flex py-2">
+                  <button className="btn btn-secondary btn-sm rounded-md shadow-lg shadow-[#FAA1D4] shadow-500/50 mr-5 text-white w-25">
                     Hi, {userSelector.userData.name.split(" ")[0]}!
                   </button>
-                  <button className="btn btn-sm bg-transparent hover:bg-secondary font-semibold hover:text-white py-2 px-4 border border-[#FAA1D4] hover:border-transparent rounded mr-4">
+                  <button
+                    onClick={() =>
+                  setModal(true)
+                    }
+                    className="btn btn-sm bg-transparent hover:bg-secondary font-semibold hover:text-white py-2 px-4 border border-[#FAA1D4] hover:border-transparent rounded mr-4"
+                  >
                     Logout
                   </button>
+                  <dialog
+                  open={modal}
+                    id="my_modal_5"
+                    className="modal modal-bottom sm:modal-middle"
+                  >
+                    <div className="modal-box w-11/12 max-w-5xl">
+                      <h3 className="font-bold text-lg">
+                        Hi {userSelector.userData.name}
+                      </h3>
+                      <p className="py-4">Are you sure you want to logout?</p>
+                      <div className="modal-action">
+                        <form method="dialog">
+                          <button
+                            className="btn mr-5 btn-secondary"
+                            onClick={() => {
+                              dispatch(logOutUser());
+                            }}
+                          >
+                            Logout
+                          </button>
+                          <button onClick ={() => setModal(false)} className="btn">Close</button>
+                        </form>
+                      </div>
+                    </div>
+                  </dialog>
                 </div>
               ) : (
-                <>
+                <div className="py-2">
                   <Link
                     className="btn btn-secondary btn-sm rounded-md shadow-lg shadow-[#FAA1D4] shadow-500/50 mr-5 text-white w-25 rounded-none"
                     to={"/login"}
@@ -118,35 +151,32 @@ const Navbar = () => {
                   >
                     Sign Up
                   </Link>
-                </>
+                </div>
               )}
             </div>
-            <div className="flex justify-end">
+            <div className="flex justify-end pr-5">
               <div className="flex-none ">
                 <Link className="btn btn-ghost text-primary w-18" to={"/"}>
                   Home
                 </Link>
               </div>
-              <div className="flex-none ">
+              <div className="flex-none">
                 <Link
                   className="btn btn-ghost text-primary w-22"
-                  to={"/restaurants"}
+                  to={"/shops"}
                 >
                   Find Shops
                 </Link>
               </div>
               <div className="flex-none">
-                <Link
-                  className="btn btn-ghost text-primary w-18"
-                  to={"/cards"}
-                >
+                <Link className="btn btn-ghost text-primary w-18" to={"/cards"}>
                   Cards
                 </Link>
               </div>
               <div className="flex-none">
                 <Link
                   className="btn btn-ghost text-primary w-18"
-                  to={"/stores"}
+                  to={"/blogs"}
                 >
                   Blogs
                 </Link>

@@ -39,9 +39,19 @@ const NavDropdown = () => {
       {LinkArray.map((it) => {
         return (
           <li key={it.link}>
-            <Link className="text-md text-primary" to={it.link}>
-              {it.name}
-            </Link>
+            {it.link === "/recipes" && (
+              <a
+                className="text-md text-primary"
+                href={`${import.meta.env.VITE_BASE_URL + "/api/recipes"}`}
+              >
+                {it.name}
+              </a>
+            )}
+            {it.link !== "/recipes" && (
+              <Link className="text-md text-primary" to={it.link}>
+                {it.name}
+              </Link>
+            )}
           </li>
         );
       })}
