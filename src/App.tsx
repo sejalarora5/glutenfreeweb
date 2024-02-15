@@ -18,6 +18,7 @@ import { AddBusiness } from "./pages/suggest_bussiness_page/AddBusiness";
 import { Profile } from "./pages/Profile_page/Profile";
 import { EditProfile } from "./pages/Profile_page/EditProfile";
 import ShopsPage from "./pages/shops_page/ShopsPage";
+import ForgotPassword from "./pages/forgot_password_page/ForgotPassword";
 import BlogsPage from "./pages/blogs_page/BlogsPage";
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
           <Route path="/videos" element={<VideoPage />} />
           <Route path="/stores" element={<StoresPage />} />
           <Route path="/cards" element={<CardsPage />} />
+          <Route path="/forgotpass" element={<ForgotPassword />} />
           <Route path="/suggestBusiness" element={<SuggestBusinessPage />} />
           <Route path="/addBusiness" element={<AddBusiness />} />
           <Route path="/profile" element={<Profile />} />

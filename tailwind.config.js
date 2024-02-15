@@ -12,11 +12,13 @@ export default {
           ...require("daisyui/src/theming/themes")["light"],
           primary: "#C36D91",
           secondary: "#F57FB0",
+          "base-100": "#ffffff",
         },
         dark: {
           ...require("daisyui/src/theming/themes")[["dark"]],
           primary: "#F57FB0",
           secondary: "#F57FB0",
+          "base-100": "#000000",
         },
       },
     ],
