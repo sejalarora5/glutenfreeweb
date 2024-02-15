@@ -20,6 +20,7 @@ import { EditProfile } from "./pages/Profile_page/EditProfile";
 import ShopsPage from "./pages/shops_page/ShopsPage";
 import ForgotPassword from "./pages/forgot_password_page/ForgotPassword";
 import BlogsPage from "./pages/blogs_page/BlogsPage";
+import GlutenFreeEbookPage from "./pages/glutenfreeebook_page/GlutenFreeEbookPage";
 
 function App() {
   const themeSelector = useSelector<RootState>(
@@ -38,7 +39,10 @@ function App() {
           <Route path="/blogs" element={<BlogsPage />} />
           <Route path="/restaurants" element={<RestaurantsPage />} />
           <Route path="/stores" element={<StoresPage />} />
-          <Route path="/restaurantsDetails/:restaurantId" element={<RestaurantDetailsPage />} />
+          <Route
+            path="/restaurantsDetails/:restaurantId"
+            element={<RestaurantDetailsPage />}
+          />
           <Route path="/videos" element={<VideoPage />} />
           <Route path="/stores" element={<StoresPage />} />
           <Route path="/cards" element={<CardsPage />} />
@@ -52,6 +56,7 @@ function App() {
             element={<RestaurantDetailsPage />}
           />
           <Route path="/shops" element={<ShopsPage />} />
+          <Route path="gluten_free_ebook" element={<GlutenFreeEbookPage />} />
         </Routes>
       </BrowserRouter>
       <ToastContainer />
