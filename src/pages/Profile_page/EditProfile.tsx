@@ -45,22 +45,6 @@ export const EditProfile = () => {
     const [city, setCity] = useState<string>(userSelector?.userData?.city || '');
     const [selectedValue, setSelectedValue] = useState("None");
 
-
-    const validationSchema = useMemo(
-        () =>
-            Yup.object().shape({
-                fullName: Yup.string().required().label("Full Name"),
-                emailId: Yup.string().required().email().label("Email"),
-                city: Yup.string().required().label("City"),
-                password: Yup.string().required().min(6).label("Password"),
-                confirmPassword: Yup.string()
-                    .oneOf([Yup.ref("password")], "Passwords must match")
-                    .required()
-                    .label("Confirm Password"),
-            }),
-        []
-    );
-
     const handleEditProfile = async () => {
         try {
             const { data } = await axios.post<SignUpObject>(
@@ -172,7 +156,7 @@ export const EditProfile = () => {
                     </div>
                     <div className="relative flex justify-center my-3 md:-mb-10">
                         <button
-                        onClick={()=>handleEditProfile()}
+                            onClick={() => name !== '' && city !== '' ? handleEditProfile() : alert('Fill all the details.')}
                             // className="px-4 py-3 bg-[#b87290] text-white rounded-md w-56"
                             className="btn btn-primary pl-10 pr-10 py-3 md:text-md text-sm w-72 sm:w-64 md:w-72 lg:w-90 bg-[#b87290] text-white rounded-md focus:outline-none shadow-md font-semibold"
                         >

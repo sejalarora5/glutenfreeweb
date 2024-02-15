@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import NavDropdown from "./NavDropdown";
 import NavDrawerComponent from "./NavDrawerComponent";
 import AppLogo from "../assets/appIcon.png";
@@ -12,6 +12,7 @@ const Navbar = () => {
     (state) => state.userSlice
   ) as UserStateType;
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [modal, setModal] = useState(false)
   return (
     <>
@@ -72,7 +73,7 @@ const Navbar = () => {
                           </h3>
                           <Link
                             className="btn btn-secondary rounded-lg btn-sm shadow-md shadow-[#FAA1D4] shadow-500/50 mr-5 text-white w-25"
-                            to={"/login"}
+                            to={"/profile"}
                           >
                             View Profile
                           </Link>
@@ -100,7 +101,7 @@ const Navbar = () => {
             <div className="flex justify-end">
               {userSelector.token !== "" ? (
                 <div className="flex py-2">
-                  <button className="btn btn-secondary btn-sm rounded-md shadow-lg shadow-[#FAA1D4] shadow-500/50 mr-5 text-white w-25">
+                  <button onClick={()=>navigate('/profile')} className="btn btn-secondary btn-sm rounded-md shadow-lg shadow-[#FAA1D4] shadow-500/50 mr-5 text-white w-25">
                     Hi, {userSelector.userData.name.split(" ")[0]}!
                   </button>
                   <button
