@@ -1,6 +1,5 @@
 import { useMemo } from "react";
 import { Link } from "react-router-dom";
-import AppLogo from "../../src/assets/appIcon.png";
 import RecipesIcon from "../../src/assets/icons_svg/ic_receipe_more_black.svg";
 import HomeIcon from "../../src/assets/icons_svg/bottomTab/menu_home_selector-1.svg";
 import BlogsIcon from "../../src/assets/icons_svg/ic_blogs.svg";
@@ -10,9 +9,6 @@ import SettingIcon from "../../src/assets/icons_svg/ic_settings.svg";
 import AboutMeIcon from "../../src/assets/icons_svg/ic_terms.svg";
 import RtiIcon from "../../src/assets/icons_svg/ic_about_me.svg";
 import FaqIcon from "../../src/assets/icons_svg/ic_faq.svg";
-import ChangePasswordIcon from "../../src/assets/icons_svg/ic_password.svg";
-import LogoutIcon from "../../src/assets/icons_svg/ic_logout.svg";
-import DeleteIcon from "../../src/assets/icons_svg/ic_profile_unselected.svg";
 const NavDrawerComponent = () => {
   const LinkArray: Array<{ name: string; link: string; icon: string }> =
     useMemo(() => {

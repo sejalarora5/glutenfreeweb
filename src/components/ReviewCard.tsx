@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import ReviewImage from "../assets/icons/user.png";
 import { Rating } from "@smastrom/react-rating";
 

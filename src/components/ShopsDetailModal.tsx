@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+
 import { useSelector } from "react-redux";
 import { ShopsDetailStateType } from "../redux/shopsDetailSlice/shopsDetailSlice";
 import { RootState } from "../redux/store";
@@ -7,7 +7,7 @@ import Phone from "../assets/icons_svg/ic_phone.svg";
 import WriteReview from "../assets/icons/ic_add_business.png";
 import AddBookMark from "../assets/icons/bookmark.png";
 import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
-import { string } from "yup";
+
 import { libraries } from "../pages/shops_page/ShopsPage";
 import ReviewCard from "./ReviewCard";
 

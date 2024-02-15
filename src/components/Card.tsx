@@ -1,6 +1,5 @@
 import { Rating } from "@smastrom/react-rating";
 import { FC } from "react";
-import LocationSvg from "../assets/location.svg";
 
 type props = {
   image: string;
