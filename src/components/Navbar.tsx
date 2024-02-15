@@ -5,12 +5,14 @@ import AppLogo from "../assets/appIcon.png";
 import { useDispatch, useSelector } from "react-redux";
 import { UserStateType, logOutUser } from "../redux/userSlice/userSlice";
 import { RootState } from "../redux/store";
+import { useState } from "react";
 
 const Navbar = () => {
   const userSelector = useSelector<RootState>(
     (state) => state.userSlice
   ) as UserStateType;
   const dispatch = useDispatch();
+  const [modal, setModal] = useState(false)
   return (
     <>
       <header className="navbar bg-base-100">
@@ -103,13 +105,14 @@ const Navbar = () => {
                   </button>
                   <button
                     onClick={() =>
-                      document.getElementById("my_modal_5").showModal()
+                  setModal(true)
                     }
                     className="btn btn-sm bg-transparent hover:bg-secondary font-semibold hover:text-white py-2 px-4 border border-[#FAA1D4] hover:border-transparent rounded mr-4"
                   >
                     Logout
                   </button>
                   <dialog
+                  open={modal}
                     id="my_modal_5"
                     className="modal modal-bottom sm:modal-middle"
                   >
@@ -128,7 +131,7 @@ const Navbar = () => {
                           >
                             Logout
                           </button>
-                          <button className="btn">Close</button>
+                          <button onClick ={() => setModal(false)} className="btn">Close</button>
                         </form>
                       </div>
                     </div>
@@ -160,7 +163,7 @@ const Navbar = () => {
               <div className="flex-none">
                 <Link
                   className="btn btn-ghost text-primary w-22"
-                  to={"/restaurants"}
+                  to={"/shops"}
                 >
                   Find Shops
                 </Link>
@@ -173,7 +176,7 @@ const Navbar = () => {
               <div className="flex-none">
                 <Link
                   className="btn btn-ghost text-primary w-18"
-                  to={"/stores"}
+                  to={"/blogs"}
                 >
                   Blogs
                 </Link>

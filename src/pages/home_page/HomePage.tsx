@@ -36,7 +36,7 @@ const HomePage = () => {
             The Celiac Lifestyle
           </h2>
 
-          <ul className="grid grid-cols-1  md:grid-cols-3 gap-3 place-items-center">
+          <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 place-items-center">
             {blogsSelector.data.success === true &&
               blogsSelector.data.data.rows
                 .filter((it) => it.thumbnail !== "")

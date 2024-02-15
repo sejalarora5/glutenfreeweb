@@ -40,6 +40,7 @@ const LoginPage = () => {
         { email, password }
       );
       if (data.success) {
+        console.log(data.token + ' token login')
         appDispatch(saveUser({ token: data.token, userData: data.data }));
         navigate("/");
         toast.success(data.message, { position: toast.POSITION.TOP_CENTER });
