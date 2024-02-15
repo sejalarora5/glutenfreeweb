@@ -22,6 +22,9 @@ const BlogsPage = () => {
   return (
     <div>
       <Navbar />
+      <h2 className="mt-14 mb-5 text-4xl text-pink-400 text-start mx-14">
+        Blogs
+      </h2>
       <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 place-items-center">
         {blogsSelector.data.success === true &&
           blogsSelector.data.data.rows

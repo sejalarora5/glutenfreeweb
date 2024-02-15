@@ -45,7 +45,7 @@ const ShopsPage = () => {
     googleMapsApiKey: import.meta.env.VITE_MAPS_KEY,
     libraries,
   });
-
+ 
   const [position, setPosition] = useState({ latitude: -1, longitude: -1 });
   const [isRestaurant, setIsRestaurant] = useState(true);
   const [filterModal, setFilterModal] = useState(false);
@@ -55,6 +55,7 @@ const ShopsPage = () => {
     useState<Array<boolean>>([]);
 
   const appDispatch = useDispatch<AppDispatch>();
+
 
   const shopsSelector = useSelector<RootState>(
     (state) => state.shopsSlice
@@ -71,6 +72,7 @@ const ShopsPage = () => {
   const userSelector = useSelector<RootState>(
     (state) => state.userSlice
   ) as UserStateType;
+
 
   useEffect(() => {
     console.log("first use effect called");

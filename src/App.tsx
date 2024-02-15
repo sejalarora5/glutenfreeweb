@@ -13,6 +13,7 @@ import RestaurantDetailsPage from "./pages/restaurants_page/restaurantsdetails_p
 import StoresPage from "./pages/stores_page/StoresPage";
 import CardsPage from "./pages/cards_page/CardsPage";
 import ShopsPage from "./pages/shops_page/ShopsPage";
+import BlogsPage from "./pages/blogs_page/BlogsPage";
 
 function App() {
   const themeSelector = useSelector<RootState>(
@@ -26,13 +27,9 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
-          <Route path="/restaurants" element={<RestaurantsPage />} />
-          <Route path="/stores" element={<StoresPage />} />
+
           <Route path="/cards" element={<CardsPage />} />
-          <Route
-            path="/restaurantsDetails/:restaurantId"
-            element={<RestaurantDetailsPage />}
-          />
+          <Route path="/blogs" element={<BlogsPage />} />
           <Route path="/shops" element={<ShopsPage />} />
         </Routes>
       </BrowserRouter>
