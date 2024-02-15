@@ -6,7 +6,7 @@ type props = {
   image: string;
   title: string;
   rating: number;
-  location: string;
+  location?: string;
   onClick: () => void;
 };
 
@@ -21,11 +21,12 @@ const Card: FC<props> = ({ image, title, rating, location, onClick }) => {
       </figure>
       <div className="card-body">
         <h2 className="card-title text-lg">{title}</h2>
-        <Rating className="-mt-2" value={rating} style={{ maxWidth: 80 }} readOnly />
-        <div className="flex flex-row">
-          <img className="w-4 h-4 mr-1 justify-center" src={LocationSvg} />
-          {location}
-          </div>
+        <Rating
+          className="-mt-2"
+          value={rating}
+          style={{ maxWidth: 150 }}
+          readOnly
+        />
       </div>
     </div>
   );

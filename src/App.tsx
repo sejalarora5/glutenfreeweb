@@ -42,6 +42,7 @@ function App() {
           <Route path="/videos" element={<VideoPage />} />
           <Route path="/stores" element={<StoresPage />} />
           <Route path="/cards" element={<CardsPage />} />
+          <Route path="/forgotpass" element={<ForgotPassword />} />
           <Route path="/suggestBusiness" element={<SuggestBusinessPage />} />
           <Route path="/addBusiness" element={<AddBusiness />} />
           <Route path="/profile" element={<Profile />} />
