@@ -1,11 +1,6 @@
-import AppLogo from "../../assets/appIcon.png";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../redux/store";
-import { UserStateType, logOutUser } from "../../redux/userSlice/userSlice";
-import { Link } from "react-router-dom";
 import HomeBanner from "../../assets/banner.jpg";
-import HomeBanner1 from "../../assets/banner1.jpeg";
-import { switchTheme } from "../../redux/themeSlice/themeSlice";
 import { useEffect } from "react";
 import {
   BlogsInitialStateType,
@@ -15,10 +10,6 @@ import BlogsCard from "../../components/BlogsCard";
 import Navbar from "../../components/Navbar";
 
 const HomePage = () => {
-  const userSelector = useSelector<RootState>(
-    (state) => state.userSlice
-  ) as UserStateType;
-
   const blogsSelector = useSelector<RootState>(
     (state) => state.blogsSlice
   ) as BlogsInitialStateType;

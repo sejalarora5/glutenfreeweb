@@ -19,6 +19,7 @@ import { Profile } from "./pages/Profile_page/Profile";
 import { EditProfile } from "./pages/Profile_page/EditProfile";
 import ShopsPage from "./pages/shops_page/ShopsPage";
 import BlogsPage from "./pages/blogs_page/BlogsPage";
+import ForgotPassword from "./pages/forgot_password_page/ForgotPassword";
 
 function App() {
   const themeSelector = useSelector<RootState>(
@@ -45,6 +46,7 @@ function App() {
           <Route path="/addBusiness" element={<AddBusiness />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/editProfile" element={<EditProfile />} />
+          <Route path="/forgotpass" element={<ForgotPassword />} />
           <Route
             path="/restaurantsDetails/:restaurantId"
             element={<RestaurantDetailsPage />}

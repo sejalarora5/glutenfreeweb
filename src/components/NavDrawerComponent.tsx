@@ -75,7 +75,7 @@ const NavDrawerComponent = () => {
       {LinkArray.map((it) => {
         return (
           <li key={it.link} className="flex-row">
-            <img className="sm:ml-10 " src={it.icon} height={50} width={50} />
+            <img className="ml-2" src={it.icon} height={50} width={50} />
             <Link className="text-md pl-0" to={it.link}>
               {it.name}
             </Link>

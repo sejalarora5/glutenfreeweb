@@ -58,7 +58,7 @@ const Navbar = () => {
                   <div className="flex bg-[#D0E5E3] p-3">
                     <div className="flex">
                       <img
-                        className="sm:ml-10 "
+                        className="img ml-1"
                         src={AppLogo}
                         height={60}
                         width={60}
@@ -71,7 +71,7 @@ const Navbar = () => {
                             {userSelector.userData.name}
                           </h3>
                           <Link
-                            className="btn btn-secondary rounded-lg btn-sm shadow-md shadow-[#FAA1D4] shadow-500/50 mr-5 text-white w-25 rounded-none"
+                            className="btn btn-secondary rounded-lg btn-sm shadow-md shadow-[#FAA1D4] shadow-500/50 mr-5 text-white w-25"
                             to={"/login"}
                           >
                             View Profile
@@ -80,7 +80,7 @@ const Navbar = () => {
                       ) : (
                         <>
                           <Link
-                            className="btn btn-secondary rounded-lg btn-sm shadow-md shadow-[#FAA1D4] shadow-500/50 mr-5 text-white w-25 rounded-none"
+                            className="btn btn-secondary rounded-lg btn-sm shadow-md shadow-[#FAA1D4] shadow-500/50 mr-5 text-white w-25"
                             to={"/login"}
                           >
                             Sign In
