@@ -5,8 +5,6 @@ import * as Yup from "yup";
 import "react-toastify/dist/ReactToastify.min.css";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "../../redux/store";
 import emailIcon from "../../assets/icons_svg/ic_email.svg";
 import AuthField from "../../components/AuthField";
 

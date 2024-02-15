@@ -1,6 +1,6 @@
 import { Formik } from "formik";
 import { useMemo, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import * as Yup from "yup";
 import appIcon from "../../assets/appIcon.png";
 import axios from "axios";
@@ -13,8 +13,6 @@ import OpenEyeSvg from "../../assets/icons_svg/eye_open5.svg";
 import emailIcon from "../../assets/icons_svg/ic_email.svg";
 import passwordIcon from "../../assets/icons_svg/ic_password.svg";
 const SignupPage = () => {
-  const navigate = useNavigate();
-
   const validationSchema = useMemo(
     () =>
       Yup.object().shape({

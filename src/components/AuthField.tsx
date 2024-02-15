@@ -6,8 +6,8 @@ type props = {
   value: string;
   type: string;
   name: string;
-  onChange: (newValue: string) => void;
-  onBlur: () => void;
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
+  onBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
   isError: boolean | undefined;
   error: string | undefined;
 };
