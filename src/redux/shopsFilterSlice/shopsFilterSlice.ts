@@ -1,5 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
+import { object } from "prop-types";
+import { array } from "yargs";
 
 export interface Cuisine {
   id: number;
@@ -76,3 +78,4 @@ const shopsFilterSlice = createSlice({
 });
 
 export default shopsFilterSlice.reducer;
+
