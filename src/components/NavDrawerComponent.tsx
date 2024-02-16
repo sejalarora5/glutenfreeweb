@@ -1,7 +1,6 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { RWebShare } from "react-web-share";
-import AppLogo from "../../src/assets/appIcon.png";
 import RecipesIcon from "../../src/assets/icons_svg/ic_receipe_more_black.svg";
 import HomeIcon from "../../src/assets/icons_svg/bottomTab/menu_home_selector-1.svg";
 import BlogsIcon from "../../src/assets/icons_svg/ic_blogs.svg";
@@ -12,10 +11,15 @@ import AboutMeIcon from "../../src/assets/icons_svg/ic_terms.svg";
 import RtiIcon from "../../src/assets/icons_svg/ic_about_me.svg";
 import FaqIcon from "../../src/assets/icons_svg/ic_faq.svg";
 import ShareIcon from "../../src/assets/icons_svg/ic_share.svg";
-import ChangePasswordIcon from "../../src/assets/icons_svg/ic_password.svg";
-import LogoutIcon from "../../src/assets/icons_svg/ic_logout.svg";
-import DeleteIcon from "../../src/assets/icons_svg/ic_profile_unselected.svg";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState } from "../redux/store";
+import { UserStateType, logOutUser } from "../redux/userSlice/userSlice";
 const NavDrawerComponent = () => {
+  const userSelector = useSelector<RootState>(
+    (state) => state.userSlice
+  ) as UserStateType;
+  const dispatch = useDispatch();
+  const [modal, setModal] = useState(false);
   const LinkArray: Array<{ name: string; link: string; icon: string }> =
     useMemo(() => {
       return [
@@ -76,37 +80,85 @@ const NavDrawerComponent = () => {
     <>
       {LinkArray.map((it) => {
         return (
-          <li key={it.link} className="flex-row hover:bg-primary">
+          <div
+            key={it.link}
+            className="flex pl-2 flex-row hover:bg-primary h-2 min-h-8 focus:outline-none active:bg-primary focus:bg-primary"
+          >
             <img
-              className="ml-2 hover:bg-transparent"
+              className="ml-2 hover:bg-transparent focus:outline-none active:bg-primary focus:bg-transparent"
               src={it.icon}
-              height={50}
-              width={50}
+              height={20}
+              width={20}
             />
-            <Link className="text-md pl-0 hover:bg-transparent" to={it.link}>
+            <Link
+              className="text-md pl-2 hover:bg-transparent self-center active:bg-primary focus:bg-transparent"
+              to={it.link}
+            >
               {it.name}
             </Link>
-          </li>
+          </div>
         );
       })}
       <button
         className="btn flex-row justify-start h-2 min-h-8 rounded-none hover:bg-primary "
         onClick={() => {}}
       >
-        <img className="ml-2" src={ShareIcon} height={20} width={20} />
+        <img className="ml-0" src={ShareIcon} height={20} width={20} />
         <RWebShare
           data={{
             text: "Gluten Free Jio",
-            url: "http://localhost:5174",
+            url: "http://localhost:5173",
             title: "Gluten Free Jio",
           }}
           onClick={() => console.log("shared successfully!")}
         >
-          <button className="text text-sm font-normal pl-1 rounded-none">
+          <button className="text text-sm font-normal pl-0 rounded-none">
             Share
           </button>
         </RWebShare>
       </button>
+      {userSelector.token !== "" && (
+        <>
+          <button
+            className="btn flex-row justify-start h-2 min-h-8 rounded-none hover:bg-primary "
+            onClick={() => {
+              setModal(true);
+            }}
+          >
+            <img className="ml-0" src={ShareIcon} height={20} width={20} />
+            <h2 className="text-md pl-0 hover:bg-transparent font-normal self-center active:bg-primary focus:bg-transparent">
+              Logout
+            </h2>
+          </button>
+          <dialog
+            open={modal}
+            id="my_modal_5"
+            className="modal modal-bottom sm:modal-middle"
+          >
+            <div className="modal-box w-11/12 max-w-5xl">
+              <h3 className="font-bold text-lg">
+                Hi {userSelector.userData.name}
+              </h3>
+              <p className="py-4">Are you sure you want to logout?</p>
+              <div className="modal-action">
+                <form method="dialog">
+                  <button
+                    className="btn mr-5 btn-secondary"
+                    onClick={() => {
+                      dispatch(logOutUser());
+                    }}
+                  >
+                    Logout
+                  </button>
+                  <button onClick={() => setModal(false)} className="btn">
+                    Close
+                  </button>
+                </form>
+              </div>
+            </div>
+          </dialog>
+        </>
+      )}
     </>
   );
 };
