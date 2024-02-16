@@ -21,7 +21,7 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div className="w-screen h-screen" data-theme="mytheme">
+    <div className="w-screen h-screen " data-theme="mytheme">
       <Navbar />
       <main>
         <div className="flex items-center justify-center content-stretch my-5">
