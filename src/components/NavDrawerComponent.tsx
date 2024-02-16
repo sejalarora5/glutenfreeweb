@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { RWebShare } from "react-web-share";
 import RecipesIcon from "../../src/assets/icons_svg/ic_receipe_more_black.svg";
 import HomeIcon from "../../src/assets/icons_svg/bottomTab/menu_home_selector-1.svg";
@@ -11,15 +11,20 @@ import AboutMeIcon from "../../src/assets/icons_svg/ic_terms.svg";
 import RtiIcon from "../../src/assets/icons_svg/ic_about_me.svg";
 import FaqIcon from "../../src/assets/icons_svg/ic_faq.svg";
 import ShareIcon from "../../src/assets/icons_svg/ic_share.svg";
+import LogoutIcon from "../../src/assets/icons_svg/ic_logout.svg";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../redux/store";
 import { UserStateType, logOutUser } from "../redux/userSlice/userSlice";
+import axios from "axios";
+import { toast } from "react-toastify";
+import Modal from "./Modal";
 const NavDrawerComponent = () => {
   const userSelector = useSelector<RootState>(
     (state) => state.userSlice
   ) as UserStateType;
   const dispatch = useDispatch();
-  const [modal, setModal] = useState(false);
+  const [logoutModal, setLogoutModal] = useState(false);
+  const [deleteAccountModal, setDeleteAccountModal] = useState(false);
   const LinkArray: Array<{ name: string; link: string; icon: string }> =
     useMemo(() => {
       return [
@@ -75,6 +80,35 @@ const NavDrawerComponent = () => {
         },
       ];
     }, []);
+  const navigate = useNavigate();
+
+  const handleDeleteAccount = async () => {
+    try {
+      await axios.post(
+        `${import.meta.env.VITE_BASE_URL}/api/delete-account`,
+        {
+          userId: userSelector.userData.id,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: userSelector.userData.token,
+          },
+        }
+      );
+      console.log("Successfully deleted");
+      dispatch(logOutUser());
+      navigate("/");
+      toast.success("Account deleted successfully", {
+        position: toast.POSITION.TOP_CENTER,
+      });
+    } catch (error) {
+      console.error("Error:", error);
+      toast.error("Failed to delete account", {
+        position: toast.POSITION.TOP_CENTER,
+      });
+    }
+  };
 
   return (
     <>
@@ -122,41 +156,49 @@ const NavDrawerComponent = () => {
           <button
             className="btn flex-row justify-start h-2 min-h-8 rounded-none hover:bg-primary "
             onClick={() => {
-              setModal(true);
+              setLogoutModal(true);
             }}
           >
-            <img className="ml-0" src={ShareIcon} height={20} width={20} />
+            <img className="ml-0" src={LogoutIcon} height={20} width={20} />
             <h2 className="text-md pl-0 hover:bg-transparent font-normal self-center active:bg-primary focus:bg-transparent">
               Logout
             </h2>
           </button>
-          <dialog
-            open={modal}
-            id="my_modal_5"
-            className="modal modal-bottom sm:modal-middle"
+          <Modal
+            modal={logoutModal}
+            handleModalClose={() => setLogoutModal(false)}
+            handleModalFunctionality={() => {
+              dispatch(logOutUser());
+            }}
+            title={"Are you sure you want to logout?"}
+            subtitle1={"Logout"}
+            subtitle2={"Cancel"}
+          />
+        </>
+      )}
+      {userSelector.token !== "" && (
+        <>
+          <button
+            className="btn flex-row justify-start h-2 min-h-8 rounded-none hover:bg-primary "
+            onClick={() => {
+              setDeleteAccountModal(true);
+            }}
           >
-            <div className="modal-box w-11/12 max-w-5xl">
-              <h3 className="font-bold text-lg">
-                Hi {userSelector.userData.name}
-              </h3>
-              <p className="py-4">Are you sure you want to logout?</p>
-              <div className="modal-action">
-                <form method="dialog">
-                  <button
-                    className="btn mr-5 btn-secondary"
-                    onClick={() => {
-                      dispatch(logOutUser());
-                    }}
-                  >
-                    Logout
-                  </button>
-                  <button onClick={() => setModal(false)} className="btn">
-                    Close
-                  </button>
-                </form>
-              </div>
-            </div>
-          </dialog>
+            <img className="ml-0" src={LogoutIcon} height={20} width={20} />
+            <h2 className="text-md pl-0 hover:bg-transparent font-normal self-center active:bg-primary focus:bg-transparent">
+              Delete Account
+            </h2>
+          </button>
+          <Modal
+            modal={deleteAccountModal}
+            handleModalClose={() => setDeleteAccountModal(false)}
+            handleModalFunctionality={() => {
+              handleDeleteAccount();
+            }}
+            title={"Are you sure you want to delete the account?"}
+            subtitle1={"Delete Account"}
+            subtitle2={"Cancel"}
+          />
         </>
       )}
     </>
