@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../redux/store";
 import { ShopsStateType, fetchShops } from "../../redux/shopsSlice/shopsSlice";
@@ -17,7 +17,6 @@ import {
   ShopsDetailStateType,
   fetchShopsDetail,
 } from "../../redux/shopsDetailSlice/shopsDetailSlice";
-import Cross from "../../assets/icons_svg/ic_cross.svg";
 import ShopsDetailModal from "../../components/ShopsDetailModal";
 
 export declare type Library =

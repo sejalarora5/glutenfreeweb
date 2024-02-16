@@ -1,4 +1,4 @@
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 import CustomInput from '../../components/CustomInput'
 import Location from "../../assets/location1.svg";
 import Email from "../../assets/email.svg";

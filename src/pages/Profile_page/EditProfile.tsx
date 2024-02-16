@@ -6,8 +6,7 @@ import { useSelector } from 'react-redux';
 import { UserStateType } from '../../redux/userSlice/userSlice';
 import { RootState } from '../../redux/store';
 import appIcon from "../../assets/appIcon.png";
-import { useMemo, useState } from 'react';
-import * as Yup from "yup";
+import { useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 

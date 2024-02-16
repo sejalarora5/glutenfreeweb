@@ -5,11 +5,11 @@ type props = {
   image: string;
   title: string;
   rating: number;
-  location?: string;
+
   onClick: () => void;
 };
 
-const Card: FC<props> = ({ image, title, rating, location, onClick }) => {
+const Card: FC<props> = ({ image, title, rating,  onClick }) => {
   return (
     <div
       className="card card-compact w-90 bg-base-100 shadow-xl"

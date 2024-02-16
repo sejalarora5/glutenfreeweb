@@ -1,5 +1,5 @@
 import { PDFDocumentProxy } from "pdfjs-dist";
-import React, { useState } from "react";
+import { useState } from "react";
 
 import { pdfjs, Document, Page } from "react-pdf";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";

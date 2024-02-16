@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { UserData } from "../../pages/login_page/LoginPage";
+import { UserData } from '../../pages/login_page/type'
 
 export type UserStateType = {
   token: string;

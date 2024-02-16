@@ -15,7 +15,7 @@ const ReviewCard: FC<props> = ({
   ratings,
   title,
   description,
-  image,
+
   name,
   date,
 }) => {

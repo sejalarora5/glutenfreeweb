@@ -1,8 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
-import { act } from "react-dom/test-utils";
-import { build } from "vite";
-import { AppDispatch } from "../store";
 
 export interface Shops_rating {
   id: number;
@@ -58,7 +55,7 @@ export const fetchShopsDetail = createAsyncThunk(
     console.log(data, ' shops detail')
     return data;
   }
-); 
+);
 
 export type ShopsDetailStateType = {
   loading: boolean;

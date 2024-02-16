@@ -15,7 +15,6 @@ import themeSlice from "./themeSlice/themeSlice";
 import blogsSlice from "./blogsSlice/blogsSlice";
 import languageSlice from "./languageSlice/languageSlice";
 import shopsSlice from "./shopsSlice/shopsSlice";
-import { ShopsFilterData } from "./shopsFilterSlice/shopsFilterSlice";
 import shopsFilterSlice from "./shopsFilterSlice/shopsFilterSlice";
 import shopsDetailSlice from "./shopsDetailSlice/shopsDetailSlice";
 
