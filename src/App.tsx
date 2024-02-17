@@ -27,6 +27,8 @@ function App() {
     (state) => state.themeSlice
   ) as ThemeStateType;
 
+
+
   return (
     <div data-theme={themeSelector.theme}>
       <BrowserRouter>
