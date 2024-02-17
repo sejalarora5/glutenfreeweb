@@ -25,9 +25,15 @@ function Modal({
       <dialog
         open={modal}
         id="my_modal_5"
-        className="modal modal-bottom sm:modal-middle"
+        className="modal sm:modal-middle md:modal-middle "
+        data-modal-target="small-modal"
+        data-modal-toggle="small-modal"
       >
-        <div className="modal-box w-11/12 max-w-5xl">
+        <div
+          className="modal-box sm:w-11/12 sm:max-w-l"
+          data-modal-target="small-modal"
+          data-modal-toggle="small-modal"
+        >
           <h3 className="font-bold text-lg">Hi {userSelector.userData.name}</h3>
           <p className="py-4">{title}</p>
           <div className="modal-action">

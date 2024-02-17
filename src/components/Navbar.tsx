@@ -6,6 +6,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { UserStateType, logOutUser } from "../redux/userSlice/userSlice";
 import { RootState } from "../redux/store";
 import { useState } from "react";
+import Modal from "./Modal";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
   const userSelector = useSelector<RootState>(
@@ -13,9 +16,63 @@ const Navbar = () => {
   ) as UserStateType;
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [modal, setModal] = useState(false)
+  const [modal, setModal] = useState(false);
+  const [deleteAccountModal, setDeleteAccountModal] = useState(false);
+  const [logoutModal, setLogoutModal] = useState(false);
+  const handleDeleteAccount = async () => {
+    try {
+      await axios.post(
+        `${import.meta.env.VITE_BASE_URL}/api/delete-account`,
+        {
+          userId: userSelector.userData.id,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: userSelector.userData.token,
+          },
+        }
+      );
+      console.log("Successfully deleted");
+      dispatch(logOutUser());
+      navigate("/");
+      toast.success("Account deleted successfully", {
+        position: toast.POSITION.TOP_CENTER,
+      });
+    } catch (error) {
+      console.error("Error:", error);
+      toast.error("Failed to delete account", {
+        position: toast.POSITION.TOP_CENTER,
+      });
+    }
+  };
   return (
     <>
+      {logoutModal && (
+        <Modal
+          modal={logoutModal}
+          handleModalClose={() => setLogoutModal(false)}
+          handleModalFunctionality={() => {
+            dispatch(logOutUser());
+          }}
+          title={"Are you sure you want to logout?"}
+          subtitle1={"Logout"}
+          subtitle2={"Cancel"}
+        />
+      )}
+      {deleteAccountModal && (
+        <Modal
+          modal={deleteAccountModal}
+          handleModalClose={() => setDeleteAccountModal(false)}
+          handleModalFunctionality={() => {
+            handleDeleteAccount();
+          }}
+          title={"Are you sure you want to delete the account?"}
+          subtitle1={"Delete Account"}
+          subtitle2={"Cancel"}
+        />
+      )}
+
       <header className="navbar bg-base-100">
         <div className="flex-1 justify-end items-end">
           <div className="flex-1">
@@ -91,7 +148,14 @@ const Navbar = () => {
                     </div>
                   </div>
 
-                  <NavDrawerComponent />
+                  <NavDrawerComponent
+                    openLogoutModal={() => {
+                      setLogoutModal(true);
+                    }}
+                    openDeleteAccountModal={() => {
+                      setDeleteAccountModal(true);
+                    }}
+                  />
                   <li></li>
                 </ul>
               </div>
@@ -101,19 +165,20 @@ const Navbar = () => {
             <div className="flex justify-end">
               {userSelector.token !== "" ? (
                 <div className="flex py-2">
-                  <button onClick={()=>navigate('/profile')} className="btn btn-secondary btn-sm rounded-md shadow-lg shadow-[#FAA1D4] shadow-500/50 mr-5 text-white w-25">
+                  <button
+                    onClick={() => navigate("/profile")}
+                    className="btn btn-secondary btn-sm rounded-md shadow-lg shadow-[#FAA1D4] shadow-500/50 mr-5 text-white w-25"
+                  >
                     Hi, {userSelector.userData.name.split(" ")[0]}!
                   </button>
                   <button
-                    onClick={() =>
-                  setModal(true)
-                    }
+                    onClick={() => setModal(true)}
                     className="btn btn-sm bg-transparent hover:bg-secondary font-semibold hover:text-white py-2 px-4 border border-[#FAA1D4] hover:border-transparent rounded mr-4"
                   >
                     Logout
                   </button>
                   <dialog
-                  open={modal}
+                    open={modal}
                     id="my_modal_5"
                     className="modal modal-bottom sm:modal-middle"
                   >
@@ -132,7 +197,12 @@ const Navbar = () => {
                           >
                             Logout
                           </button>
-                          <button onClick ={() => setModal(false)} className="btn">Close</button>
+                          <button
+                            onClick={() => setModal(false)}
+                            className="btn"
+                          >
+                            Close
+                          </button>
                         </form>
                       </div>
                     </div>
@@ -162,10 +232,7 @@ const Navbar = () => {
                 </Link>
               </div>
               <div className="flex-none">
-                <Link
-                  className="btn btn-ghost text-primary w-22"
-                  to={"/shops"}
-                >
+                <Link className="btn btn-ghost text-primary w-22" to={"/shops"}>
                   Find Shops
                 </Link>
               </div>
@@ -175,10 +242,7 @@ const Navbar = () => {
                 </Link>
               </div>
               <div className="flex-none">
-                <Link
-                  className="btn btn-ghost text-primary w-18"
-                  to={"/blogs"}
-                >
+                <Link className="btn btn-ghost text-primary w-18" to={"/blogs"}>
                   Blogs
                 </Link>
               </div>
