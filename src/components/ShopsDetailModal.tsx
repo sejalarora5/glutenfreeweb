@@ -1,4 +1,3 @@
-
 import { useSelector } from "react-redux";
 import { ShopsDetailStateType } from "../redux/shopsDetailSlice/shopsDetailSlice";
 import { RootState } from "../redux/store";
@@ -10,17 +9,129 @@ import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
 
 import { libraries } from "../pages/shops_page/ShopsPage";
 import ReviewCard from "./ReviewCard";
+import { useState } from "react";
+
+import BackArrow from "../assets/icons_svg/ic_back_nav_black.svg";
+import { toast } from "react-toastify";
+import axios from "axios";
+import { UserStateType } from "../redux/userSlice/userSlice";
+import { ShopsStateType } from "../redux/shopsSlice/shopsSlice";
 
 const ShopsDetailModal = () => {
   const shopsDetailSelector = useSelector<RootState>(
     (state) => state.shopsDetailSlice
   ) as ShopsDetailStateType;
 
+  const userSelector = useSelector<RootState>(
+    (state) => state.userSlice
+  ) as UserStateType;
+  const shopSelector = useSelector<RootState>(
+    (state) => state.shopsSlice
+  ) as ShopsStateType;
+
+  const [writeReview, setWriteReview] = useState(false);
+  const [rating, setRating] = useState(0);
+  const [title, setTitle] = useState("");
+  const [comment, setComments] = useState("");
+  const [file, setFile] = useState<FileList | null>(null);
+
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: import.meta.env.VITE_MAPS_KEY,
     libraries,
   });
+
+  const handleWriteReview = async () => {
+    try {
+      if (title.length < 1) {
+        toast("Please enter a title");
+        return;
+      }
+
+      if (comment.length < 1) {
+        toast("Please enter a comment");
+        return;
+      }
+
+      if (rating < 1) {
+        toast("Pleas rate the shop");
+        return;
+      }
+
+      if (file === null) {
+        toast("Please select a file");
+        return;
+      }
+
+      const base64 = file[0].name;
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_BASE_URL}/api/add-rating`,
+        {
+          userId: userSelector.userData.id.toString(),
+          restaurantId: shopSelector.data.data.restaurant.toString(),
+          rating: rating.toString(),
+          comment: comment,
+          title: title,
+          image: base64?.toString(),
+        },
+        {
+          headers: {
+            Authorization: userSelector.token,
+          },
+        }
+      );
+      console.log(data , ' write a review') 
+      toast("Review submitted successfully");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  if (writeReview) {
+    return (
+      <div>
+        <div className="btn btn-ghost" onClick={() => setWriteReview(false)}>
+          <img className="h-5" src={BackArrow} />
+        </div>
+        <div className="flex flex-col justify-center items-center">
+          <input
+            value={title}
+            onChange={(it) => setTitle(it.target.value)}
+            type="text"
+            placeholder="Title"
+            className="input input-bordered w-full max-w-xs"
+          />
+          <input
+            value={comment}
+            onChange={(it) => setComments(it.target.value)}
+            type="text"
+            placeholder="Comment"
+            className="input input-bordered mt-5 w-full max-w-xs"
+          />
+
+          <Rating
+            value={rating}
+            onChange={setRating}
+            className="mt-5"
+            style={{ maxWidth: 150 }}
+          />
+          <input
+            onChange={(it) => setFile(it.target.files)}
+            type="file"
+            accept="image/*"
+            className="file-input w-full mt-5 max-w-xs"
+          />
+
+          <button
+            onClick={handleWriteReview}
+            className="btn btn-secondary mt-5"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -69,7 +180,10 @@ const ShopsDetailModal = () => {
                 <img className="h-8" src={Phone} />
                 <p>Phone</p>
               </div>
-              <div className="flex flex-col justify-center items-center">
+              <div
+                onClick={() => setWriteReview(true)}
+                className="flex flex-col justify-center items-center"
+              >
                 <img className="h-8" src={WriteReview} />
                 <p>Write a review</p>
               </div>
