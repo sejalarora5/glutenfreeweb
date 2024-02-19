@@ -28,6 +28,10 @@ const NavDropdown = () => {
         link: "/rti",
       },
       {
+        name: "About Us",
+        link: "/aboutme",
+      },
+      {
         name: "FAQ to information",
         link: "/faq",
       },
