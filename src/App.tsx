@@ -22,6 +22,7 @@ import BlogsPage from "./pages/blogs_page/BlogsPage";
 import ForgotPassword from "./pages/forgot_password_page/ForgotPassword";
 import GlutenFreeEbookPage from "./pages/glutenfreeebook_page/GlutenFreeEbookPage";
 import RTIPage from "./pages/rti_page/RTIPage";
+import AboutMe from "./pages/aboutMe_page/AboutMe";
 
 function App() {
   const themeSelector = useSelector<RootState>(
@@ -59,6 +60,7 @@ function App() {
             element={<RestaurantDetailsPage />}
           />
           <Route path="/shops" element={<ShopsPage />} />
+          <Route path="/aboutme" element={<AboutMe />} />
           <Route path="gluten_free_ebook" element={<GlutenFreeEbookPage />} />
         </Routes>
       </BrowserRouter>
