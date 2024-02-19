@@ -21,13 +21,12 @@ import ShopsPage from "./pages/shops_page/ShopsPage";
 import BlogsPage from "./pages/blogs_page/BlogsPage";
 import ForgotPassword from "./pages/forgot_password_page/ForgotPassword";
 import GlutenFreeEbookPage from "./pages/glutenfreeebook_page/GlutenFreeEbookPage";
+import RTIPage from "./pages/rti_page/RTIPage";
 
 function App() {
   const themeSelector = useSelector<RootState>(
     (state) => state.themeSlice
   ) as ThemeStateType;
-
-
 
   return (
     <div data-theme={themeSelector.theme}>
@@ -54,6 +53,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/editProfile" element={<EditProfile />} />
           <Route path="/forgotpass" element={<ForgotPassword />} />
+          <Route path="/rti" element={<RTIPage />} />
           <Route
             path="/restaurantsDetails/:restaurantId"
             element={<RestaurantDetailsPage />}
