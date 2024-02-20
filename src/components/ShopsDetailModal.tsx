@@ -30,6 +30,7 @@ const ShopsDetailModal = () => {
   ) as ShopsStateType;
 
   const [writeReview, setWriteReview] = useState(false);
+  const [readReview, setReadReview] = useState(false);
   const [rating, setRating] = useState(0);
   const [title, setTitle] = useState("");
   const [comment, setComments] = useState("");
@@ -80,7 +81,7 @@ const ShopsDetailModal = () => {
           },
         }
       );
-      console.log(data , ' write a review') 
+      console.log(data, " write a review");
       toast("Review submitted successfully");
     } catch (error) {
       console.log(error);
@@ -94,12 +95,13 @@ const ShopsDetailModal = () => {
           <img className="h-5" src={BackArrow} />
         </div>
         <div className="flex flex-col justify-center items-center">
+          <h2 className="text-lg font-semibold text-pink-400">Write a review</h2>
           <input
             value={title}
             onChange={(it) => setTitle(it.target.value)}
             type="text"
             placeholder="Title"
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered mt-5 w-full max-w-xs"
           />
           <input
             value={comment}
@@ -124,7 +126,7 @@ const ShopsDetailModal = () => {
 
           <button
             onClick={handleWriteReview}
-            className="btn btn-secondary mt-5"
+            className="btn btn-secondary mt-10"
           >
             Submit
           </button>
@@ -132,6 +134,20 @@ const ShopsDetailModal = () => {
       </div>
     );
   }
+
+  if (readReview) {
+    return (
+      <div>
+          <div className="btn btn-ghost" onClick={() => setReadReview(false)}>
+          <img className="h-5" src={BackArrow} />
+        </div>
+        <div>
+          read reviews
+        </div>
+      </div>
+    );
+  }
+  
 
   return (
     <div>
@@ -226,9 +242,9 @@ const ShopsDetailModal = () => {
               </div>
             </div>
 
-            <div>
+            <div onClick={() => setReadReview(true)}>
               <p>
-                {`Based on ${shopsDetailSelector.data.data.rating_count} ratings. View All`}{" "}
+                {`Based on ${shopsDetailSelector.data.data.rating_count} ratings. View All`}
               </p>
               <div className="h-1 bg-black" />
             </div>

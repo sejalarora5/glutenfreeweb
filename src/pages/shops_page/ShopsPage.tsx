@@ -51,7 +51,9 @@ const ShopsPage = () => {
   const [searchShop, setSearchShop] = useState("");
   const [detailModal, setDetailModal] = useState<number | "close">("close");
   const [restaurantFilterCheckedState, setRestauarantFilterCheckedState] =
-    useState<Array<boolean>>([]);
+    useState<Array<boolean>>(new Array(55).fill(false));
+
+  const [cusines, setCuisines] = useState<Array<string>>([])
 
   const appDispatch = useDispatch<AppDispatch>();
 
@@ -72,6 +74,18 @@ const ShopsPage = () => {
     (state) => state.userSlice
   ) as UserStateType;
 
+
+ const updateCuisines = () => {
+  console.log(restaurantFilterCheckedState)
+  const tmpCus = shopsFilterSelector.data.data[0].cuisine.filter((_, index) => 
+  restaurantFilterCheckedState[index] 
+  )  
+  .map(it => it.name)
+  console.log(tmpCus)
+  setCuisines(tmpCus)
+ } 
+
+  
 
   useEffect(() => {
     console.log("first use effect called");
@@ -99,7 +113,9 @@ const ShopsPage = () => {
       );
     }
     appDispatch(fetchShopsFilter(isRestaurant ? 1 : 2));
+    setRestauarantFilterCheckedState(new Array(51).fill(false))
   }, [position, isRestaurant]);
+
 
   return (
     <div>
@@ -225,6 +241,7 @@ const ShopsPage = () => {
                                                 _index === index ? !item : item
                                               )
                                           );
+                                        
                                         }}
                                       />
                                     </label>
@@ -235,6 +252,15 @@ const ShopsPage = () => {
                           )
                       }
                     </ul>
+                    <div> 
+                      <button onClick={() => {
+                        updateCuisines()
+                        
+                        
+                      }} className="btn btn-ghost">
+                        Apply
+                      </button>
+                    </div>
                   </div>
                 </dialog>
               </div>
