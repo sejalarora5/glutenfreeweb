@@ -1,6 +1,12 @@
 import { useMemo } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { RootState } from "../redux/store";
+import { UserStateType } from "../redux/userSlice/userSlice";
 const NavDropdown = () => {
+  const userSelector = useSelector<RootState>(
+    (state) => state.userSlice
+  ) as UserStateType;
   const LinkArray: Array<{ name: string; link: string }> = useMemo(() => {
     return [
       {

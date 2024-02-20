@@ -24,6 +24,7 @@ import GlutenFreeEbookPage from "./pages/glutenfreeebook_page/GlutenFreeEbookPag
 import RTIPage from "./pages/rti_page/RTIPage";
 import AboutMe from "./pages/aboutMe_page/AboutMe";
 import FAQ from "./pages/faq_page/FAQ";
+import ChangePassword from "./pages/change_password/ChangePassword";
 
 function App() {
   const themeSelector = useSelector<RootState>(
@@ -49,18 +50,19 @@ function App() {
           <Route path="/videos" element={<VideoPage />} />
           <Route path="/stores" element={<StoresPage />} />
           <Route path="/cards" element={<CardsPage />} />
-          <Route path="/forgotpass" element={<ForgotPassword />} />
           <Route path="/suggestBusiness" element={<SuggestBusinessPage />} />
           <Route path="/addBusiness" element={<AddBusiness />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/editProfile" element={<EditProfile />} />
           <Route path="/forgotpass" element={<ForgotPassword />} />
+          <Route path="/changepassword" element={<ChangePassword />} />
           <Route path="/rti" element={<RTIPage />} />
           <Route
             path="/restaurantsDetails/:restaurantId"
             element={<RestaurantDetailsPage />}
           />
           <Route path="/shops" element={<ShopsPage />} />
+          <Route path="/aboutme" element={<AboutMe />} />
           <Route path="/aboutme" element={<AboutMe />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="gluten_free_ebook" element={<GlutenFreeEbookPage />} />

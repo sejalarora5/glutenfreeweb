@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { RWebShare } from "react-web-share";
 import RecipesIcon from "../../src/assets/icons_svg/ic_receipe_more_black.svg";
 import HomeIcon from "../../src/assets/icons_svg/bottomTab/menu_home_selector-1.svg";
@@ -26,6 +26,7 @@ const NavDrawerComponent = ({
   const userSelector = useSelector<RootState>(
     (state) => state.userSlice
   ) as UserStateType;
+  const navigate = useNavigate();
   const LinkArray: Array<{
     name: string;
     link: string;
@@ -135,6 +136,21 @@ const NavDrawerComponent = ({
             <img className="ml-0" src={LogoutIcon} height={20} width={20} />
             <h2 className="text-md pl-0 hover:bg-transparent font-normal self-center active:bg-primary focus:bg-transparent">
               Logout
+            </h2>
+          </button>
+        </>
+      )}
+      {userSelector.token !== "" && (
+        <>
+          <button
+            className="btn flex-row justify-start h-2 min-h-8 rounded-none hover:bg-primary "
+            onClick={() => {
+              navigate("/changepassword");
+            }}
+          >
+            <img className="ml-0" src={LogoutIcon} height={20} width={20} />
+            <h2 className="text-md pl-0 hover:bg-transparent font-normal self-center active:bg-primary focus:bg-transparent">
+              Change Password
             </h2>
           </button>
         </>
