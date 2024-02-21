@@ -39,11 +39,12 @@ export interface ShopsData {
 
 export const fetchShops = createAsyncThunk(
   "shops",
-  async (obj: { latitude: number; longitude: number; type: number }) => {
-    const { latitude, longitude, type } = obj;
-    const url = `${
+  async (obj: { latitude: number; longitude: number; type: number; category: string | undefined }) => {
+    const { latitude, longitude, type, category } = obj;
+    const url = category === undefined ?`${
       import.meta.env.VITE_BASE_URL
-    }/api/get-shop?type=${type}&lat=${latitude}&lng=${longitude}`;
+    }/api/get-shop?type=${type}&lat=${latitude}&lng=${longitude}` : `${ import.meta.env.VITE_BASE_URL
+    }/api/get-shop?type=${type}&lat=${latitude}&lng=${longitude}&category=${category}`
     const { data } = await axios.get<ShopsData>(url);
     console.log(data + " shopsss");
     return data;

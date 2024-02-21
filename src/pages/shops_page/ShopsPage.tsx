@@ -80,8 +80,17 @@ const ShopsPage = () => {
   const tmpCus = shopsFilterSelector.data.data[0].cuisine.filter((_, index) => 
   restaurantFilterCheckedState[index] 
   )  
-  .map(it => it.name)
+  .map(it => it.name )
   console.log(tmpCus)
+
+    appDispatch(
+      fetchShops({
+        latitude: position.latitude,
+        longitude: position.longitude,
+        type: isRestaurant ? 1 : 2,
+        category: tmpCus.length > 0 ? tmpCus.join(',') : undefined
+      })
+    );
   setCuisines(tmpCus)
  } 
 
@@ -96,6 +105,7 @@ const ShopsPage = () => {
         console.log(success.coords);
       },
       (err) => {
+       
         console.log(err);
       }
     );
@@ -109,6 +119,7 @@ const ShopsPage = () => {
           latitude: position.latitude,
           longitude: position.longitude,
           type: isRestaurant ? 1 : 2,
+          category: undefined
         })
       );
     }
@@ -252,12 +263,12 @@ const ShopsPage = () => {
                           )
                       }
                     </ul>
-                    <div> 
+                    <div className="flex justify-center items-center"> 
                       <button onClick={() => {
                         updateCuisines()
                         
                         
-                      }} className="btn btn-ghost">
+                      }} className="btn btn-secondary">
                         Apply
                       </button>
                     </div>
