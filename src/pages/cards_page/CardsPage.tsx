@@ -113,11 +113,11 @@ const CardsPage = () => {
     <div>
       <Navbar />
       <div className="flex flex-row justify-between mx-10 my-5">
-        <h1 className="text-4xl font-semibold text-pink-400">
+        <h1 className="text text-4xl font-semibold text-secondary">
           Gluten-Free Cards
         </h1>
         <details className="dropdown dropdown-bottom dropdown-end">
-          <summary className="m-1 btn text-pink-400">{currentLang}</summary>
+          <summary className="m-1 btn text-secondary">{currentLang}</summary>
           <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
             {langSelector.data.data.map((it) => (
               <li>
@@ -133,7 +133,7 @@ const CardsPage = () => {
           </ul>
         </details>
       </div>
-      <div className="flex flex-1 items-center justify-center">
+      <div className="flex flex-1 justify-center">
         <Document
           file={currentFile}
           onLoadSuccess={onDocumentLoadSuccess}
