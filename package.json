@@ -53,5 +53,6 @@
     "typescript": "^5.2.2",
     "vite": "^5.0.8",
     "vite-plugin-static-copy": "^1.0.1"
-  }
+  },
+  "packageManager": "yarn@4.1.0"
 }
