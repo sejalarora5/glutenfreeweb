@@ -50,7 +50,7 @@ const NavDrawerComponent = ({
       },
       {
         name: "Find Shops",
-        link: "/stores",
+        link: "/shops",
         icon: RecipesIcon,
       },
       {
