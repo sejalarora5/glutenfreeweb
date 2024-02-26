@@ -6,10 +6,8 @@ import SignupPage from "./pages/signup_page/SignupPage";
 import { useSelector } from "react-redux";
 import { RootState } from "./redux/store";
 import { ThemeStateType } from "./redux/themeSlice/themeSlice";
-
 import "@smastrom/react-rating/style.css";
 import "react-toastify/dist/ReactToastify.min.css";
-
 import VideoPage from "./pages/video_page/VideoPage";
 import CardsPage from "./pages/cards_page/CardsPage";
 import SuggestBusinessPage from "./pages/suggest_bussiness_page/SuggestBusinessPage";
@@ -37,12 +35,9 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
-
           <Route path="/cards" element={<CardsPage />} />
           <Route path="/blogs" element={<BlogsPage />} />
-         
           <Route path="/videos" element={<VideoPage />} />
-
           <Route path="/cards" element={<CardsPage />} />
           <Route path="/suggestBusiness" element={<SuggestBusinessPage />} />
           <Route path="/addBusiness" element={<AddBusiness />} />
@@ -51,7 +46,6 @@ function App() {
           <Route path="/forgotpass" element={<ForgotPassword />} />
           <Route path="/changepassword" element={<ChangePassword />} />
           <Route path="/rti" element={<RTIPage />} />
- 
           <Route path="/shops" element={<ShopsPage />} />
           <Route path="/aboutme" element={<AboutMe />} />
           <Route path="/aboutme" element={<AboutMe />} />
@@ -65,3 +59,6 @@ function App() {
 }
 
 export default App;
+
+
+
